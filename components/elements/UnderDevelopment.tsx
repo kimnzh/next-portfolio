@@ -3,7 +3,7 @@ import Logo from "@/public/logo-glow.svg";
 
 const UnderDevelopment = () => {
   return (
-    <main className="pt-[25vh] min-h-screen bg-gradient-to-br from-[#040A27] to-[#020617] flex-col flex items-center">
+    <main className="pt-[25vh] min-h-screen bg-gradient-to-br to-[#040A27] from-[#020617] flex-col flex items-center">
       <div className="w-48 md:w-64 aspect-square relative">
         <Image src={Logo} alt={"logo"} fill />
       </div>

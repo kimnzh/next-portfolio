@@ -1,15 +1,22 @@
 import Image from "next/image";
 import Logo from "@/public/logo.svg";
 
-import Profile from "@/public/navbar/profile.svg";
-import Experience from "@/public/navbar/experience.svg";
-import Projects from "@/public/navbar/projects.svg";
-import Life from "@/public/navbar/life.svg";
+const sections = [
+  { label: "Profile" },
+  { label: "Experience" },
+  { label: "Projects" },
+  { label: "Life" },
+].map((section) => ({
+  src: `navbar/${section.label.toLowerCase()}.svg`,
+  hoverSrc: `navbar/${section.label.toLowerCase()}-hover.svg`,
+  label: section.label,
+}));
 
 export const Navbar = () => {
   return (
     <div className="fixed h-[108px] inset-0 z-[9999] m-12">
-      <div className="h-full w-full absolute flex justify-between border-2 border-white rounded-[24px] p-[16px] z-10">
+      <div className="h-full w-full absolute bg-[#0F172A]/70 backdrop-blur-[8px] rounded-[24px]" />
+      <div className="h-full w-full absolute flex justify-between border-2 border-white rounded-[24px] p-[16px]">
         <div className="h-full flex items-center">
           <div className="relative h-full ml-10 mr-4 aspect-square">
             <Image className="" src={Logo} alt="logo" fill />
@@ -20,39 +27,35 @@ export const Navbar = () => {
         </div>
         <div className="flex items-center gap-3 h-full">
           <div className="h-full aspect-square rounded-full bg-white"></div>
-          <div className="text-2xl text-white font-poppins-semibold mx-12">
+          <div className="relative text-2xl text-white font-poppins-semibold mx-12 group cursor-pointer">
             Contact Me
+            <span className="absolute block w-full h-1 bg-white scale-x-0 group-hover:scale-x-100 origin-center transition duration-300 ease-out"></span>
           </div>
-          <div className="relative h-full aspect-square border-2 border-white rounded-[16px]">
-            <Image
-              src={Profile}
-              alt="profile"
-              fill
-              className="object-cover p-2"
-            />
-          </div>
-          <div className="relative h-full aspect-square border-2 border-white rounded-[16px]">
-            <Image
-              src={Experience}
-              alt="experience"
-              fill
-              className="object-cover p-2"
-            />
-          </div>
-          <div className="relative h-full aspect-square border-2 border-white rounded-[16px]">
-            <Image
-              src={Projects}
-              alt="projects"
-              fill
-              className="object-cover p-2"
-            />
-          </div>
-          <div className="relative h-full aspect-square border-2 border-white rounded-[16px]">
-            <Image src={Life} alt="life" fill className="object-cover p-2" />
-          </div>
+          {sections.map((section, idx) => (
+            <div
+              key={idx}
+              className="relative h-full flex justify-center aspect-square border-2 border-white rounded-[16px] hover:bg-white transition cursor-pointer"
+            >
+              <div className="h-full w-full absolute peer z-10" />
+              <Image
+                src={section.src}
+                alt={section.label.toLowerCase()}
+                fill
+                className="object-cover p-2 peer-hover:hidden"
+              />
+              <Image
+                src={section.hoverSrc}
+                alt={section.label.toLowerCase()}
+                fill
+                className="object-cover p-2 hidden peer-hover:block"
+              />
+              <div className="absolute top-[150%] text-center text-white font-poppins-semibold bg-[#0F172A] rounded-full py-1 px-4 scale-0 -translate-y-12 peer-hover:scale-100 peer-hover:translate-y-0 transition">
+                {section.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="h-full w-full bg-[#0F172A] opacity-70 backdrop-blur-[30px] rounded-[24px] z-0"></div>
     </div>
   );
 };
