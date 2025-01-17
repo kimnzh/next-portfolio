@@ -8,6 +8,14 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "rgba(var(--primary))",
+        secondary: "rgba(var(--secondary))",
+        tertiary: "rgba(var(--tertiary))",
+        "primary-light": "rgba(var(--primary-light))",
+        "secondary-light": "rgba(var(--secondary-light))",
+        "tertiary-light": "rgba(var(--tertiary-light))",
+      },
       fontFamily: {
         "poppins-bold": ["var(--font-poppins-bold)", "sans-serif"],
         "poppins-reg": ["var(--font-poppins-reg)", "sans-serif"],
@@ -16,4 +24,5 @@ export default {
     },
   },
   plugins: [],
+  darkMode: "class",
 } satisfies Config;

@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply transition-colors duration-700;
+}
+
+:root {
+  --primary: #0f172a;
+  --secondary: #040a27;
+  --tertiary: #020617;
+  --primary-light: #f1f5f9;
+  --secondary-light: #dcdee0;
+  --tertiary-light: #e5e9ed;
+}
+
 @layer components {
   .glowing-text {
     @apply text-blue-500;
