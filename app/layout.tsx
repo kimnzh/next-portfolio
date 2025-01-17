@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Navbar } from "@/components/elements/Navbar";
 
-const PoppinsReg = localFont({
+const poppinsBold = localFont({
+  src: "./fonts/Poppins-Bold.ttf",
+  variable: "--font-poppins-bold",
+});
+
+const poppinsReg = localFont({
   src: "./fonts/Poppins-Regular.ttf",
-  variable: "--font-PoppinsReg",
+  variable: "--font-poppins-reg",
+});
+
+const poppinsSemiBold = localFont({
+  src: "./fonts/Poppins-SemiBold.ttf",
+  variable: "--font-poppins-semibold",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +35,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${PoppinsReg.variable}`}>{children}</body>
+      <body
+        className={`${poppinsReg.variable} ${poppinsBold.variable} ${poppinsSemiBold.variable} font-poppins-reg`}
+      >
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
