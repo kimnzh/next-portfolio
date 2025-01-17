@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Logo from "@/public/logo.svg";
+import { useState } from "react";
 
 const sections = [
   { label: "Profile" },
@@ -13,20 +15,48 @@ const sections = [
 }));
 
 export const Navbar = () => {
+  const [isDark, setIsDark] = useState(false);
+
   return (
     <div className="fixed h-[108px] inset-0 z-[9999] m-12">
       <div className="h-full w-full absolute bg-[#0F172A]/70 backdrop-blur-[8px] rounded-[24px]" />
       <div className="h-full w-full absolute flex justify-between border-2 border-white rounded-[24px] p-[16px]">
         <div className="h-full flex items-center">
           <div className="relative h-full ml-10 mr-4 aspect-square">
-            <Image className="" src={Logo} alt="logo" fill />
+            <Image src={Logo} alt="logo" fill />
           </div>
-          <h1 className="text-3xl text-white font-poppins-bold">
+          <h1 className="text-3xl text-white font-poppins-bold cursor-pointer">
             Hakim Nizami
           </h1>
         </div>
         <div className="flex items-center gap-3 h-full">
-          <div className="h-full aspect-square rounded-full bg-white"></div>
+          <div
+            className={`${isDark ? "bg-white" : "bg-[#0F172A]"} relative h-full aspect-square rounded-full overflow-hidden cursor-pointer transition duration-700`}
+            onClick={() => setIsDark(!isDark)}
+          >
+            <Image
+              src="navbar/moon.svg"
+              alt="dark-mode"
+              fill
+              className={`object-cover p-3 transition-all duration-700 origin-bottom-right
+                ${
+                  isDark
+                    ? "translate-y-0 rotate-0"
+                    : "translate-y-[100%] rotate-[150deg]"
+                }`}
+            />
+            <Image
+              src="navbar/sun.svg"
+              alt="dark-mode"
+              fill
+              className={`object-cover p-3 transition-all duration-700 origin-bottom-left
+                ${
+                  !isDark
+                    ? "translate-y-0 rotate-0"
+                    : "translate-y-[100%] -rotate-[150deg]"
+                }`}
+            />
+          </div>
           <div className="relative text-2xl text-white font-poppins-semibold mx-12 group cursor-pointer">
             Contact Me
             <span className="absolute block w-full h-1 bg-white scale-x-0 group-hover:scale-x-100 origin-center transition duration-300 ease-out"></span>
