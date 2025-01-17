@@ -1,9 +1,5 @@
 "use client";
 import Image from "next/image";
-import Logo from "@/public/logo.svg";
-import LogoLight from "@/public/light/logo.svg";
-import { useState } from "react";
-import { NavbarProps } from "../interface";
 import { useDarkMode } from "@/app/providers/DarkModeProvider";
 
 // [#0F172A] is set as --primary and [#F1F5F9] is set as --primary-light
@@ -14,8 +10,8 @@ const sections = [
   { label: "Projects" },
   { label: "Life" },
 ].map((section) => ({
-  src: `navbar/${section.label.toLowerCase()}.svg`,
-  hoverSrc: `navbar/${section.label.toLowerCase()}-hover.svg`,
+  src: `${section.label.toLowerCase()}.svg`,
+  hoverSrc: `${section.label.toLowerCase()}-hover.svg`,
   label: section.label,
 }));
 
@@ -23,14 +19,17 @@ export const Navbar = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div
-      className={`${darkMode && "dark"} fixed h-[108px] inset-0 z-[9999] m-12`}
-    >
+    <div className="fixed h-[108px] inset-0 z-[9999] m-12">
       <div className="h-full w-full absolute bg-[#F1F5F9]/70 dark:bg-[#0F172A]/70 backdrop-blur-[8px] rounded-[24px]" />
       <div className="h-full w-full absolute flex justify-between border-2 border-[#0F172A] dark:border-white rounded-[24px] p-[16px]">
         <div className="h-full flex items-center">
           <div className="relative h-full ml-10 mr-4 aspect-square">
-            <Image src={Logo} alt="logo" fill />
+            <div className="text-[#0F172A] dark:text-white"></div>
+            <Image
+              src={`${darkMode ? "" : "/light"}/logo.svg`}
+              alt="logo"
+              fill
+            />
           </div>
           <h1 className="text-3xl text-[#0F172A] dark:text-white font-poppins-bold cursor-pointer">
             Hakim Nizami
@@ -56,7 +55,7 @@ export const Navbar = () => {
               src="navbar/sun.svg"
               alt="dark-mode"
               fill
-              className={`object-cover p-3 transition-all duration-700 origin-bottom-left
+              className={`object-cover p-3 transition-all duration-500 origin-bottom-left
                 ${
                   !darkMode
                     ? "translate-y-0 rotate-0"
@@ -75,13 +74,13 @@ export const Navbar = () => {
             >
               <div className="h-full w-full absolute peer z-10" />
               <Image
-                src={section.src}
+                src={`navbar/${(darkMode ? "" : "light/") + section.src}`}
                 alt={section.label.toLowerCase()}
                 fill
                 className="object-cover p-2 peer-hover:hidden"
               />
               <Image
-                src={section.hoverSrc}
+                src={`navbar/${(darkMode ? "" : "light/") + section.hoverSrc}`}
                 alt={section.label.toLowerCase()}
                 fill
                 className="object-cover p-2 hidden peer-hover:block"

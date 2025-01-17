@@ -9,12 +9,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "rgba(var(--primary))",
-        secondary: "rgba(var(--secondary))",
-        tertiary: "rgba(var(--tertiary))",
-        "primary-light": "rgba(var(--primary-light))",
-        "secondary-light": "rgba(var(--secondary-light))",
-        "tertiary-light": "rgba(var(--tertiary-light))",
+        primary: {
+          DEFAULT: "#0f172a",
+          light: "#f1f5f9",
+        },
+        secondary: {
+          DEFAULT: "#040a27",
+          light: "#dcdee0",
+        },
+        tertiary: {
+          DEFAULT: "#020617",
+          light: "#e5e9ed",
+        },
       },
       fontFamily: {
         "poppins-bold": ["var(--font-poppins-bold)", "sans-serif"],
