@@ -1,4 +1,4 @@
-import UnderDevelopment from "@/components/UnderDevelopment";
+import UnderDevelopment from "@/components/elements/UnderDevelopment";
 
 export default function Home() {
   return (
