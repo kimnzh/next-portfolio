@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useDarkMode } from "@/app/providers/DarkModeProvider";
 
 import { Logo } from "../vectors/Logo";
-import { Profile } from "../vectors/Profile";
-import { Experience } from "../vectors/Experience";
-import { Projects } from "../vectors/Projects";
-import { Life } from "../vectors/Life";
+import { Profile } from "../vectors/navbar/Profile";
+import { Experience } from "../vectors/navbar/Experience";
+import { Projects } from "../vectors/navbar/Projects";
+import { Life } from "../vectors/navbar/Life";
 import { useState } from "react";
 
 // [#0F172A] is set as --primary and [#F1F5F9] is set as --primary-light
@@ -35,14 +35,17 @@ export const Navbar = () => {
         </div>
         <div className="flex items-center gap-3 h-full">
           <div
-            className={`${darkMode ? "bg-white" : "bg-[#0F172A]"} relative h-full aspect-square rounded-full overflow-hidden cursor-pointer transition duration-1000`}
-            onClick={toggleDarkMode}
+            className={`${darkMode ? "bg-white" : "bg-[#0F172A]"} relative h-full aspect-square rounded-full overflow-hidden transition duration-300`}
           >
+            <div
+              className="h-full w-full absolute z-20 rounded-full cursor-pointer"
+              onClick={toggleDarkMode}
+            />
             <Image
               src="moon.svg"
               alt="dark-mode"
               fill
-              className={`object-cover p-3 transition-all duration-1000 origin-bottom-right
+              className={`object-cover p-3 transition-all duration-700 origin-bottom-right
                 ${
                   darkMode
                     ? "translate-y-0 rotate-0"
@@ -53,7 +56,7 @@ export const Navbar = () => {
               src="sun.svg"
               alt="light-mode"
               fill
-              className={`object-cover p-3 transition-all duration-1000 origin-bottom-left
+              className={`object-cover p-3 transition-all duration-700 origin-bottom-left
                 ${
                   darkMode
                     ? "translate-y-[100%] -rotate-[150deg]"
@@ -71,7 +74,7 @@ export const Navbar = () => {
               className="relative h-full flex justify-center aspect-square border-2 border-[#0F172A] dark:border-white rounded-[16px]"
             >
               <div
-                className={`${section.isHovered[0] ? "bg-[#0F172A] dark:bg-white" : ""} h-full w-full absolute rounded-[14px] transition duration-150`}
+                className={`${section.isHovered[0] ? "bg-[#0F172A] dark:bg-white" : ""} h-full w-full absolute rounded-[14px] transition duration-300`}
               />
               <div
                 className="h-full w-full absolute z-20 rounded-[14px] cursor-pointer"
@@ -84,7 +87,7 @@ export const Navbar = () => {
                 className="p-2 z-10"
               />
               <div
-                className={`${section.isHovered[0] ? "scale-100 translate-y-0" : "scale-0 -translate-y-12"} absolute top-[150%] text-center text-[#0F172A] dark:text-white font-poppins-semibold bg-[#F1F5F9] dark:bg-[#0F172A] rounded-full py-1 px-4 scale-0 -translate-y-12 peer-hover:scale-100 peer-hover:translate-y-0 transition duration-150`}
+                className={`${section.isHovered[0] ? "scale-100 translate-y-0" : "scale-0 -translate-y-12"} absolute top-[150%] text-center text-[#0F172A] dark:text-white font-poppins-semibold bg-[#F1F5F9] dark:bg-[#0F172A] rounded-full py-1 px-4 scale-0 -translate-y-12 peer-hover:scale-100 peer-hover:translate-y-0 transition duration-300`}
               >
                 {section.label}
               </div>
