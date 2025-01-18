@@ -2,34 +2,32 @@
 import Image from "next/image";
 import { useDarkMode } from "@/app/providers/DarkModeProvider";
 
-// [#0F172A] is set as --primary and [#F1F5F9] is set as --primary-light
+import { Logo } from "../vectors/Logo";
+import { Profile } from "../vectors/Profile";
+import { Experience } from "../vectors/Experience";
+import { Projects } from "../vectors/Projects";
+import { Life } from "../vectors/Life";
+import { useState } from "react";
 
-const sections = [
-  { label: "Profile" },
-  { label: "Experience" },
-  { label: "Projects" },
-  { label: "Life" },
-].map((section) => ({
-  src: `${section.label.toLowerCase()}.svg`,
-  hoverSrc: `${section.label.toLowerCase()}-hover.svg`,
-  label: section.label,
-}));
+// [#0F172A] is set as --primary and [#F1F5F9] is set as --primary-light
 
 export const Navbar = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
+
+  const sections = [
+    { component: Profile, label: "Profile", isHovered: useState(false) },
+    { component: Experience, label: "Experience", isHovered: useState(false) },
+    { component: Projects, label: "Projects", isHovered: useState(false) },
+    { component: Life, label: "Life", isHovered: useState(false) },
+  ];
 
   return (
     <div className="fixed h-[108px] inset-0 z-[9999] m-12">
       <div className="h-full w-full absolute bg-[#F1F5F9]/70 dark:bg-[#0F172A]/70 backdrop-blur-[8px] rounded-[24px]" />
       <div className="h-full w-full absolute flex justify-between border-2 border-[#0F172A] dark:border-white rounded-[24px] p-[16px]">
         <div className="h-full flex items-center">
-          <div className="relative h-full ml-10 mr-4 aspect-square">
-            <div className="text-[#0F172A] dark:text-white"></div>
-            <Image
-              src={`${darkMode ? "" : "/light"}/logo.svg`}
-              alt="logo"
-              fill
-            />
+          <div className="h-full ml-10 mr-4 aspect-square">
+            <Logo darkMode={darkMode} />
           </div>
           <h1 className="text-3xl text-[#0F172A] dark:text-white font-poppins-bold cursor-pointer">
             Hakim Nizami
@@ -37,14 +35,14 @@ export const Navbar = () => {
         </div>
         <div className="flex items-center gap-3 h-full">
           <div
-            className={`${darkMode ? "bg-white" : "bg-[#0F172A]"} relative h-full aspect-square rounded-full overflow-hidden cursor-pointer transition duration-700`}
+            className={`${darkMode ? "bg-white" : "bg-[#0F172A]"} relative h-full aspect-square rounded-full overflow-hidden cursor-pointer transition duration-1000`}
             onClick={toggleDarkMode}
           >
             <Image
-              src="navbar/moon.svg"
+              src="moon.svg"
               alt="dark-mode"
               fill
-              className={`object-cover p-3 transition-all duration-700 origin-bottom-right
+              className={`object-cover p-3 transition-all duration-1000 origin-bottom-right
                 ${
                   darkMode
                     ? "translate-y-0 rotate-0"
@@ -52,14 +50,14 @@ export const Navbar = () => {
                 }`}
             />
             <Image
-              src="navbar/sun.svg"
-              alt="dark-mode"
+              src="sun.svg"
+              alt="light-mode"
               fill
-              className={`object-cover p-3 transition-all duration-500 origin-bottom-left
+              className={`object-cover p-3 transition-all duration-1000 origin-bottom-left
                 ${
-                  !darkMode
-                    ? "translate-y-0 rotate-0"
-                    : "translate-y-[100%] -rotate-[150deg]"
+                  darkMode
+                    ? "translate-y-[100%] -rotate-[150deg]"
+                    : "translate-y-0 rotate-0"
                 }`}
             />
           </div>
@@ -70,22 +68,24 @@ export const Navbar = () => {
           {sections.map((section, idx) => (
             <div
               key={idx}
-              className="relative h-full flex justify-center aspect-square border-2 border-[#0F172A] dark:border-white rounded-[16px] hover:bg-[#0F172A] dark:hover:bg-white transition cursor-pointer"
+              className="relative h-full flex justify-center aspect-square border-2 border-[#0F172A] dark:border-white rounded-[16px]"
             >
-              <div className="h-full w-full absolute peer z-10" />
-              <Image
-                src={`navbar/${(darkMode ? "" : "light/") + section.src}`}
-                alt={section.label.toLowerCase()}
-                fill
-                className="object-cover p-2 peer-hover:hidden"
+              <div
+                className={`${section.isHovered[0] ? "bg-[#0F172A] dark:bg-white" : ""} h-full w-full absolute rounded-[14px] transition duration-150`}
               />
-              <Image
-                src={`navbar/${(darkMode ? "" : "light/") + section.hoverSrc}`}
-                alt={section.label.toLowerCase()}
-                fill
-                className="object-cover p-2 hidden peer-hover:block"
+              <div
+                className="h-full w-full absolute z-20 rounded-[14px] cursor-pointer"
+                onMouseOver={() => section.isHovered[1](true)}
+                onMouseOut={() => section.isHovered[1](false)}
               />
-              <div className="absolute top-[150%] text-center text-[#0F172A] dark:text-white font-poppins-semibold bg-[#F1F5F9] dark:bg-[#0F172A] rounded-full py-1 px-4 scale-0 -translate-y-12 peer-hover:scale-100 peer-hover:translate-y-0 transition">
+              <section.component
+                darkMode={darkMode}
+                isHovered={section.isHovered[0]}
+                className="p-2 z-10"
+              />
+              <div
+                className={`${section.isHovered[0] ? "scale-100 translate-y-0" : "scale-0 -translate-y-12"} absolute top-[150%] text-center text-[#0F172A] dark:text-white font-poppins-semibold bg-[#F1F5F9] dark:bg-[#0F172A] rounded-full py-1 px-4 scale-0 -translate-y-12 peer-hover:scale-100 peer-hover:translate-y-0 transition duration-150`}
+              >
                 {section.label}
               </div>
             </div>

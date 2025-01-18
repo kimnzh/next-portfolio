@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Logo from "@/public/logo-glow.svg";
+import Logo from "@/public/dark/logo-glow.svg";
 
 const UnderDevelopment = () => {
   return (
-    <main className="pt-[25vh] min-h-screen bg-tertiary flex-col flex items-center">
+    <main className="pt-[25vh] min-h-screen bg-gradient-to-br from-tertiary-light to-secondary-light hover:from-tertiary hover:to-secondary flex-col flex items-center transition-all duration-500">
       <div className="w-48 md:w-64 aspect-square relative">
         <Image src={Logo} alt={"logo"} fill />
       </div>
