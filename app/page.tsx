@@ -1,8 +1,8 @@
-import UnderDevelopment from "@/components/UnderDevelopment";
+import UnderDevelopment from "@/components/elements/UnderDevelopment";
 
 export default function Home() {
   return (
-    <main className="relative bg-gradient-to-r from-white to-black">
+    <main className="dark:bg-tertiary-dark relative h-[2000px] min-h-screen bg-tertiary">
       <UnderDevelopment />
     </main>
   );
