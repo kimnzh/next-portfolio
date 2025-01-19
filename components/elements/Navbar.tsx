@@ -33,21 +33,21 @@ const NavbarMobile = () => {
   return (
     <div className="fixed bottom-0 right-0 top-0 z-[9999] m-8 w-[72px] md:hidden">
       <div
-        className={`${isMenuOpen ? "h-full" : "h-[72px] delay-300"} dark:bg-primary-dark/70 absolute w-full rounded-[20px] bg-primary/70 backdrop-blur-[8px] transition-all duration-300`}
+        className={`${isMenuOpen ? "h-full" : "h-[72px] delay-300"} dark:bg-primary-dark/70 absolute w-full rounded-[20px] bg-primary/70 backdrop-blur-[8px] transition-all duration-300 ease-out`}
       />
       <div
-        className={`${isMenuOpen ? "h-full" : "h-[72px] delay-300"} border-primary-dark absolute flex min-h-12 w-full flex-col justify-between overflow-hidden rounded-[20px] border-2 p-[12px] transition-all duration-300 dark:border-white`}
+        className={`${isMenuOpen ? "h-full" : "h-[72px] delay-300"} border-primary-dark absolute flex min-h-12 w-full flex-col justify-between overflow-hidden rounded-[20px] border-2 p-[12px] transition-all duration-300 ease-out dark:border-white`}
       >
         <div className="flex flex-col items-center gap-[12px]">
           <Hamburger isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <div
-            className={`${isMenuOpen ? "delay-300" : "translate-x-[150%]"} transition`}
+            className={`${isMenuOpen ? "delay-300" : "translate-x-[150%]"} transition duration-300 ease-out`}
           >
             <Logo darkMode={darkMode} />
           </div>
         </div>
         <div
-          className={`${isMenuOpen ? "delay-300" : "translate-x-[150%]"} flex flex-col items-center gap-3 transition`}
+          className={`${isMenuOpen ? "delay-300" : "translate-x-[150%]"} flex flex-col items-center gap-3 transition duration-300 ease-out`}
         >
           <div
             className={`${darkMode ? "bg-white" : "bg-primary-dark"} relative aspect-square w-full overflow-hidden rounded-full transition duration-300`}
@@ -79,9 +79,6 @@ const NavbarMobile = () => {
           </div>
           <div className="border-primary-dark group relative -mx-1 flex aspect-square w-full items-center justify-center rounded-[16px] dark:border-white">
             <Contact darkMode={darkMode} className="z-10 p-2" />
-            <div className="text-primary-dark dark:bg-primary-dark absolute right-2 scale-0 rounded-full bg-primary px-4 py-1 text-center font-poppins-semibold text-xs transition duration-300 group-hover:-translate-x-14 group-hover:scale-100 peer-hover:translate-x-0 peer-hover:scale-100 dark:text-white">
-              Contact
-            </div>
           </div>
           {sections.map((section, idx) => (
             <div
@@ -101,11 +98,6 @@ const NavbarMobile = () => {
                 isHovered={section.isHovered[0]}
                 className="z-10 p-2"
               />
-              <div
-                className={`${section.isHovered[0] ? "-translate-x-14 scale-100" : "scale-0"} text-primary-dark dark:bg-primary-dark absolute right-2 rounded-full bg-primary px-4 py-1 text-center font-poppins-semibold text-xs transition duration-300 peer-hover:translate-y-0 peer-hover:scale-100 dark:text-white`}
-              >
-                {section.label}
-              </div>
             </div>
           ))}
         </div>
