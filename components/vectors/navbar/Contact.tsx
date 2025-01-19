@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { getColor, useDebouncedHover } from "../../handlers";
+import { getColor } from "../../handlers";
 import { VectorProps } from "../../interface";
 
 export const Contact: FC<VectorProps> = ({ darkMode, className = "" }) => {
