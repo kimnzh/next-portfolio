@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Logo from "@/public/logo-glow.svg";
+import Logo from "@/public/dark/logo-glow.svg";
 
 const UnderDevelopment = () => {
   return (
-    <main className="pt-[25vh] min-h-screen bg-gradient-to-br from-[#040A27] to-[#020617] flex-col flex items-center">
-      <div className="w-48 md:w-64 aspect-square relative">
+    <main className="bg-tertiary-dark flex h-[5000px] min-h-screen flex-col items-center pt-[25vh]">
+      <div className="relative aspect-square w-48 md:w-64">
         <Image src={Logo} alt={"logo"} fill />
       </div>
-      <div className="border-solid bg-[#0F172A] border-white border-2 px-4 sm:px-10 py-2 sm:py-6 rounded-[16px] sm:rounded-[32px] text-lg sm:text-3xl lg:text-6xl font-PoppinsReg text-white mt-12 font-semibold glowing-text">
+      <div className="font-PoppinsReg glowing-text bg-WHI mt-12 rounded-[16px] border-2 border-solid border-white px-4 py-2 text-lg font-semibold text-white sm:rounded-[32px] sm:px-10 sm:py-6 sm:text-3xl lg:text-6xl">
         <span className="flicker-fast">We</span>bs
         <span className="flicker-slow">ite</span> Un
         <span className="flicker-slow">der</span> D
