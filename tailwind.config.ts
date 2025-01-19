@@ -10,16 +10,16 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#0f172a",
-          light: "#f1f5f9",
+          DEFAULT: "#f1f5f9",
+          dark: "#0f172a",
         },
         secondary: {
-          DEFAULT: "#040a27",
-          light: "#dcdee0",
+          DEFAULT: "#dcdee0",
+          dark: "#040a27",
         },
         tertiary: {
-          DEFAULT: "#020617",
-          light: "#e5e9ed",
+          DEFAULT: "#e5e9ed",
+          dark: "#020617",
         },
       },
       fontFamily: {

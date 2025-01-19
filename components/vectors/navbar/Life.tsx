@@ -7,11 +7,11 @@ export const Life: FC<VectorProps> = ({
   className = "",
   isHovered = false,
 }) => {
-  const debouncedHover = useDebouncedHover(isHovered, 150);
+  const debouncedHover = useDebouncedHover(isHovered, 100);
 
   return (
     <svg
-      className={`w-full h-full ${className}`}
+      className={`h-full w-full ${className}`}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -8,7 +8,7 @@ interface DarkModeContextType {
 }
 
 const DarkModeContext = createContext<DarkModeContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
@@ -17,7 +17,7 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
   // Handle initial dark mode based on user's system preference
   useEffect(() => {
     const isDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
     setDarkMode(isDarkMode);
   }, []);

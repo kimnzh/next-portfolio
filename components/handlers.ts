@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useDebouncedHover = (
   isHovered: boolean,
-  delay: number
+  delay: number,
 ): boolean => {
   const [debouncedHover, setDebouncedHover] = useState(isHovered);
 
@@ -17,6 +17,7 @@ export const useDebouncedHover = (
   return debouncedHover;
 };
 
+// #0F172A is --primary-dark
 export const getColor = (darkMode: boolean, isHovered: boolean): string => {
   if (darkMode) {
     return isHovered ? "#0F172A" : "white";
