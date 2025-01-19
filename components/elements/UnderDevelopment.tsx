@@ -3,7 +3,7 @@ import Logo from "@/public/dark/logo-glow.svg";
 
 const UnderDevelopment = () => {
   return (
-    <main className="bg-tertiary-dark flex h-[5000px] min-h-screen flex-col items-center pt-[25vh]">
+    <main className="bg-tertiary-dark flex min-h-screen flex-col items-center pt-[25vh]">
       <div className="relative aspect-square w-48 md:w-64">
         <Image src={Logo} alt={"logo"} fill />
       </div>

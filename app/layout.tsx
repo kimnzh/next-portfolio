@@ -39,10 +39,7 @@ export default function RootLayout({
       <body
         className={`${poppinsReg.variable} ${poppinsBold.variable} ${poppinsSemiBold.variable} all font-poppins-reg`}
       >
-        <Providers>
-          <Navbar />
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
