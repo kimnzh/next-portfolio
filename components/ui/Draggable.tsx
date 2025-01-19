@@ -36,10 +36,19 @@ const Draggable = () => {
 
   // Animation configuration for consistent timing
   const ANIMATION_CONFIG = {
-    type: "spring",
-    stiffness: 400,
-    damping: 30,
-    duration: 0.3,
+    type: "spring" as const,
+    stiffness: 400, // Reduced from 400
+    damping: 30, // Reduced from 30
+    mass: 1.5, // Added mass to make it feel heavier
+    restDelta: 0.001, // Makes the animation more precise
+  };
+
+  const EXPAND_ANIMATION_CONFIG = {
+    type: "spring" as const,
+    stiffness: 300, // Even lower stiffness for expansion
+    damping: 40,
+    mass: 2, // Higher mass for expansion
+    restDelta: 0.001,
   };
 
   const determineCornerPosition = (
@@ -83,7 +92,7 @@ const Draggable = () => {
           x: x.get(),
           y: isExpanded
             ? y.get()
-            : y.get() - (windowHeight - MARGIN * 2) + SQUARE_SIZE, // Move up while expanding
+            : y.get() - (windowHeight - MARGIN * 2) + SQUARE_SIZE,
         };
       case "bottomRight":
         return {
@@ -91,7 +100,7 @@ const Draggable = () => {
           height: SQUARE_SIZE,
           x: isExpanded
             ? x.get()
-            : x.get() - (windowWidth - MARGIN * 2) + SQUARE_SIZE, // Move left while expanding
+            : x.get() - (windowWidth - MARGIN * 2) + SQUARE_SIZE,
           y: y.get(),
         };
     }
@@ -189,39 +198,43 @@ const Draggable = () => {
     setCurrentCorner(determineCornerPosition(targetCorner.x, targetCorner.y));
 
     animate(x, targetCorner.x, {
-      type: "spring",
-      stiffness: 400,
-      damping: 30,
+      ...ANIMATION_CONFIG,
       velocity: info.velocity.x,
     });
 
     animate(y, targetCorner.y, {
-      type: "spring",
-      stiffness: 400,
-      damping: 30,
+      ...ANIMATION_CONFIG,
       velocity: info.velocity.y,
     });
   };
 
   const handleExpand = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsExpanded(!isExpanded);
+
+    const currentX = x.get();
+    const currentY = y.get();
 
     if (!isExpanded) {
-      // Store the current position before expanding
-      setInitialPosition({ x: x.get(), y: y.get() });
+      setInitialPosition({ x: currentX, y: currentY });
 
       const expandedDimensions = getExpandedDimensions(currentCorner);
 
-      // Expanding - animate both position and size with the same timing
-      animate(x, expandedDimensions.x, ANIMATION_CONFIG);
-      animate(y, expandedDimensions.y, ANIMATION_CONFIG);
+      // Using slower animation config for expansion
+      animate(x, expandedDimensions.x, EXPAND_ANIMATION_CONFIG);
+      animate(y, expandedDimensions.y, EXPAND_ANIMATION_CONFIG);
     } else {
-      // Collapsing - return to the stored initial position
-      animate(x, initialPosition.x, ANIMATION_CONFIG);
-      animate(y, initialPosition.y, ANIMATION_CONFIG);
+      // Using slower animation config for collapse
+      animate(x, initialPosition.x, EXPAND_ANIMATION_CONFIG);
+      animate(y, initialPosition.y, EXPAND_ANIMATION_CONFIG);
     }
+
+    setIsExpanded(!isExpanded);
   };
+
+  // Calculate current dimensions based on expansion state
+  const currentDimensions = isExpanded
+    ? getExpandedDimensions(currentCorner)
+    : { width: SQUARE_SIZE, height: SQUARE_SIZE };
 
   return (
     <motion.div
@@ -232,20 +245,21 @@ const Draggable = () => {
         x,
         y,
         position: "fixed",
-        borderRadius: 8,
+        borderRadius: 24,
         cursor: isDragging ? "grabbing" : "grab",
         backgroundColor: isDragging ? "rgb(168, 85, 247)" : "rgb(59, 130, 246)",
         boxShadow:
           "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       }}
       animate={{
-        ...dimensions,
+        width: currentDimensions.width,
+        height: currentDimensions.height,
         scale: isDragging ? 1.05 : 1,
         boxShadow: isDragging
           ? "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
           : "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-        transition: ANIMATION_CONFIG,
       }}
+      transition={EXPAND_ANIMATION_CONFIG} // Using slower animation for size changes
       onDragStart={() => {
         setIsDragging(true);
         setIsExpanded(false);
@@ -269,7 +283,7 @@ const Draggable = () => {
       >
         <motion.div
           animate={{ rotate: isExpanded ? 180 : 0 }}
-          transition={ANIMATION_CONFIG}
+          transition={EXPAND_ANIMATION_CONFIG} // Using slower animation for rotation
         >
           {getChevronIcon()}
         </motion.div>

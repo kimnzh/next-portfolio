@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Navbar } from "@/components/elements/Navbar";
+import Navbar from "@/components/elements/Navbar";
 import { Providers } from "@/app/providers/providers";
 
 const poppinsBold = localFont({
