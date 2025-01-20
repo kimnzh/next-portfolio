@@ -6,9 +6,14 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <main className="dark:bg-tertiary-dark relative flex h-[2000px] min-h-screen justify-center bg-tertiary">
+      <main className="relative flex h-[2000px] min-h-screen justify-center bg-tertiary dark:bg-tertiary-dark">
         <div className="relative aspect-square w-48 md:w-64 lg:w-[36rem]">
-          <Image src={Logo} alt={"logo"} fill />
+          <Image
+            className="invert dark:invert-0"
+            src={Logo}
+            alt={"logo"}
+            fill
+          />
         </div>
       </main>
     </>
