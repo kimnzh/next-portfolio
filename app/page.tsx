@@ -1,9 +1,9 @@
-import { ProfileModule } from "@/modules/ProfileModule";
+import UnderDevelopment from "@/components/elements/UnderDevelopment";
 
 export default function Home() {
   return (
-    <main className="relative h-[2000px] min-h-screen min-w-[0] max-w-[1440px]">
-      <ProfileModule />
+    <main className="relative min-h-screen max-w-[1440px]">
+      <UnderDevelopment />
     </main>
   );
 }

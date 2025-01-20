@@ -4,13 +4,8 @@
 
 * {
   @apply transition-colors duration-300;
-}
-
-body,
-main,
-section,
-div {
-  min-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: #dcdee0 transparent;
 }
 
 .no-transition {
@@ -18,30 +13,40 @@ div {
   transition-property: none !important;
 }
 
-@layer components {
-  .glowing-text {
-    @apply text-blue-500;
-    text-shadow:
-      0 0 10px rgba(255, 255, 255, 0.5),
-      0 0 20px rgba(255, 255, 255, 0.3),
-      0 0 30px rgba(255, 255, 255, 0.2);
-    animation: glow 2s ease-in-out infinite alternate;
-  }
+/* Scrollbar */
 
-  @keyframes glow {
-    from {
-      text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.5),
-        0 0 20px rgba(255, 255, 255, 0.3),
-        0 0 30px rgba(255, 255, 255, 0.2);
-    }
-    to {
-      text-shadow:
-        0 0 20px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(255, 255, 255, 0.3);
-    }
-  }
+::-webkit-scrollbar {
+  width: 10px;
+  transition: all 300ms;
+}
+
+html::-webkit-scrollbar-track {
+  background: #dcdee0;
+  border-radius: 5px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #0f172a;
+  border: 1px solid #dcdee0;
+  border-radius: 5px;
+}
+
+html.dark::-webkit-scrollbar-track {
+  background: #040a27;
+}
+
+html.dark::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border: 1px solid #040a27;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #040a27;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border: 1px solid #040a27;
 }
 
 /* Hamburger Menu */

@@ -64,7 +64,7 @@ export const ProfileModule = () => {
               ]
             </div>
           </div>
-          <div className="ml:text-base ml:h-40 sl:h-28 overflow-auto text-sm leading-relaxed text-primary-dark dark:text-white 2xl:text-xl">
+          <div className="ml:text-base ml:h-40 sl:h-28 overflow-auto text-sm leading-relaxed text-primary-dark dark:text-white xl:h-fit 2xl:text-xl">
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Praesentium perspiciatis accusantium officiis! Esse voluptatum
@@ -88,7 +88,7 @@ export const ProfileModule = () => {
               className="object-contain pl-8 2xl:pl-12"
             />
           </div>
-          <div className="ml-6 mt-12 flex justify-between max-md:-mr-4 md:ml-8 lg:justify-evenly 2xl:ml-12">
+          <div className="ml-6 mt-12 flex justify-between duration-300 max-md:-mr-4 md:ml-8 lg:justify-evenly 2xl:ml-12">
             {assets.map((asset, idx) => (
               <div className="flex justify-center">
                 <div
