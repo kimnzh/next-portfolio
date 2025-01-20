@@ -40,7 +40,7 @@
 /* Hamburger Menu */
 
 .hamburger-line {
-  @apply bg-primary-dark my-2 block h-[4px] w-[34px] rounded-md transition duration-300 ease-in-out dark:bg-white;
+  @apply my-2 block h-[4px] w-[34px] rounded-md bg-primary-dark transition duration-500 ease-in-out dark:bg-white;
 }
 
 .hamburger-active > span:nth-child(1) {
