@@ -130,7 +130,7 @@ const DraggableMobile = ({
 
     setCurrentPosition(targetPosition);
 
-    let targetX =
+    const targetX =
       targetPosition === "left"
         ? margin
         : windowDimensions.width - squareSize - margin;
