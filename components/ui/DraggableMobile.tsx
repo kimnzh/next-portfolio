@@ -9,6 +9,11 @@ type Corner = {
 
 type Position = "top" | "bottom" | "left" | "right";
 
+type WindowDimensions = {
+  width: number;
+  height: number;
+};
+
 const DraggableMobile = ({
   children,
   squareSize,
@@ -32,6 +37,24 @@ const DraggableMobile = ({
     x: 0,
     y: 0,
   });
+  const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>({
+    width: 0,
+    height: 0,
+  });
+
+  // Initialize window dimensions
+  useEffect(() => {
+    const updateDimensions = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
   const VELOCITY_THRESHOLD: number = 50;
   const SCREEN_WIDTH_THRESHOLD: number = 768;
@@ -53,37 +76,34 @@ const DraggableMobile = ({
   };
 
   const getCurrentPosition = (posX: number): Position => {
-    const windowWidth = window.innerWidth;
-    return posX < windowWidth / 2 ? "left" : "right";
+    return posX < windowDimensions.width / 2 ? "left" : "right";
   };
 
   const getExpandedDimensions = (position: Position) => {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    const isMobile = windowWidth < SCREEN_WIDTH_THRESHOLD;
+    const isMobile = windowDimensions.width < SCREEN_WIDTH_THRESHOLD;
 
     if (isMobile) {
-      // On mobile, expand vertically from current x position
       return {
         width: squareSize,
-        height: windowHeight - margin * 2,
-        x: position === "left" ? margin : windowWidth - squareSize - margin,
-        y: margin, // Always expand from top on mobile
+        height: windowDimensions.height - margin * 2,
+        x:
+          position === "left"
+            ? margin
+            : windowDimensions.width - squareSize - margin,
+        y: margin,
       };
     } else {
-      // On desktop, expand horizontally
       return {
-        width: windowWidth - margin * 2,
+        width: windowDimensions.width - margin * 2,
         height: squareSize,
         x: margin,
-        y: y.get(), // Maintain current y position
+        y: y.get(),
       };
     }
   };
 
   const getNearestSide = (currentX: number): Position => {
-    const windowWidth = window.innerWidth;
-    return currentX < windowWidth / 2 ? "left" : "right";
+    return currentX < windowDimensions.width / 2 ? "left" : "right";
   };
 
   useEffect(() => {
@@ -113,7 +133,7 @@ const DraggableMobile = ({
     let targetX =
       targetPosition === "left"
         ? margin
-        : window.innerWidth - squareSize - margin;
+        : windowDimensions.width - squareSize - margin;
 
     animate(x, targetX, { ...ANIMATION_CONFIG, velocity: info.velocity.x });
     animate(y, y.get(), { ...ANIMATION_CONFIG, velocity: info.velocity.y });
@@ -124,9 +144,7 @@ const DraggableMobile = ({
 
     if (!isMenuOpen) {
       setInitialPosition({ x: x.get(), y: y.get() });
-
       const expandedDimensions = getExpandedDimensions(currentPosition);
-
       animate(x, expandedDimensions.x, EXPAND_ANIMATION_CONFIG);
       animate(y, expandedDimensions.y, EXPAND_ANIMATION_CONFIG);
     } else {
@@ -140,6 +158,16 @@ const DraggableMobile = ({
   const currentDimensions = isMenuOpen
     ? getExpandedDimensions(currentPosition)
     : { width: squareSize, height: squareSize };
+
+  const dragConstraints = {
+    top: margin,
+    bottom: windowDimensions.height - squareSize - margin,
+    left: margin,
+    right: windowDimensions.width - squareSize - margin,
+  };
+
+  // Don't render until we have window dimensions
+  if (windowDimensions.width === 0) return null;
 
   return (
     <motion.div
@@ -164,19 +192,13 @@ const DraggableMobile = ({
         setIsMenuOpen(false);
       }}
       onDragEnd={handleDragEnd}
-      dragConstraints={{
-        top: margin,
-        bottom: window.innerHeight - squareSize - margin,
-        left: margin,
-        right: window.innerWidth - squareSize - margin,
-      }}
+      dragConstraints={dragConstraints}
     >
       <button
         onClick={handleExpand}
         className={`absolute ${
           isMenuOpen ? "hamburger-active" : ""
         } group my-[12px] block`}
-        style={{}}
       >
         <span className="hamburger-line"></span>
         <span className="hamburger-line"></span>

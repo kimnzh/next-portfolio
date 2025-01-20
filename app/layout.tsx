@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "@/app/providers/providers";
+import Navbar from "@/components/elements/Navbar";
 
 const poppinsBold = localFont({
   src: "./fonts/Poppins-Bold.ttf",
@@ -38,7 +39,10 @@ export default function RootLayout({
       <body
         className={`${poppinsReg.variable} ${poppinsBold.variable} ${poppinsSemiBold.variable} all font-poppins-reg`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
