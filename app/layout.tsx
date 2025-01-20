@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "@/app/providers/providers";
-import Navbar from "@/components/elements/Navbar";
 
 const poppinsBold = localFont({
   src: "./fonts/Poppins-Bold.ttf",
