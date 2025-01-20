@@ -6,6 +6,13 @@
   @apply transition-colors duration-300;
 }
 
+body,
+main,
+section,
+div {
+  min-width: none;
+}
+
 .no-transition {
   transition-duration: 0ms;
   transition-property: none !important;

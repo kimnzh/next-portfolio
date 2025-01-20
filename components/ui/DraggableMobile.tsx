@@ -171,7 +171,7 @@ const DraggableMobile = ({
 
   return (
     <motion.div
-      className={`${darkMode ? "border-white bg-primary-dark/70" : "border-primary-dark bg-primary/70"} fixed z-[9999] flex justify-center overflow-hidden border-2 backdrop-blur-[8px] min-[652px]:hidden`}
+      className={`${darkMode ? "border-white bg-primary-dark/50" : "border-primary-dark bg-primary/50"} fixed z-[9999] flex justify-center overflow-hidden border-2 backdrop-blur-[8px] min-[652px]:hidden`}
       drag
       dragMomentum={true}
       dragElastic={0}

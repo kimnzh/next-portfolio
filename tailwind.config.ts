@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        sl: "652px",
+        ml: "912px",
+        "2xl": "1218px",
+      },
       colors: {
         primary: {
           DEFAULT: "#f1f5f9",

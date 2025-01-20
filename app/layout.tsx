@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppinsReg.variable} ${poppinsBold.variable} ${poppinsSemiBold.variable} all font-poppins-reg`}
+        className={`${poppinsReg.variable} ${poppinsBold.variable} ${poppinsSemiBold.variable} all relative flex justify-center bg-tertiary font-poppins-reg dark:bg-tertiary-dark`}
       >
         <Providers>
           <Navbar />
