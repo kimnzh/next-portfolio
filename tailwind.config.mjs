@@ -5,11 +5,25 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "#f1f5f9",
+          dark: "#0f172a",
+        },
+        secondary: {
+          DEFAULT: "#dcdee0",
+          dark: "#040a27",
+        },
+        tertiary: {
+          DEFAULT: "#e5e9ed",
+          dark: "#020617",
+        },
+      },
+      fontFamily: {
+        poppins: ["var(--font-poppins)", "sans-serif"],
       },
     },
   },
