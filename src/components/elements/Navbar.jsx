@@ -31,9 +31,9 @@ const NavbarMobile = ({ darkMode, toggleDarkMode, sections }) => {
       setIsMenuOpen={setIsMenuOpen}
     >
       <div
-        className={`${isMenuOpen ? "" : "translate-x-[150%]"} absolute mt-[60px] flex flex-col p-[10px] transition duration-500`}
+        className={`${isMenuOpen ? "" : "translate-x-[150%]"} flex flex-col p-[10px] transition duration-500`}
       >
-        <div className="relative mb-3 aspect-square w-full overflow-hidden rounded-full bg-primary-dark transition duration-500 dark:bg-white">
+        <div className="relative mb-2 aspect-square w-full overflow-hidden rounded-full bg-primary-dark transition duration-500 dark:bg-white">
           <div
             className="absolute z-20 h-full w-full cursor-pointer rounded-full"
             onClick={toggleDarkMode}
@@ -59,13 +59,13 @@ const NavbarMobile = ({ darkMode, toggleDarkMode, sections }) => {
             }`}
           />
         </div>
-        <div className="mb-2 flex aspect-square w-full items-center justify-center">
+        <div className="mt-[10px] flex aspect-square w-full items-center justify-center">
           <Contact darkMode={darkMode} className="z-10 p-1" />
         </div>
         {sections.map((section, idx) => (
           <div
             key={idx}
-            className="relative mb-[10px] flex aspect-square w-full items-center justify-center rounded-[12px] border-2 border-primary-dark dark:border-white"
+            className="relative mt-[10px] flex aspect-square w-full items-center justify-center rounded-[12px] border-2 border-primary-dark dark:border-white"
             onMouseOver={() => section.hoveredState[1](true)}
             onMouseOut={() => section.hoveredState[1](false)}
           >

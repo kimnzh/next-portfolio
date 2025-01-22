@@ -66,7 +66,7 @@ const DraggableMobile = ({
     if (isMobile) {
       return {
         width: squareSize,
-        height: 422,
+        height: 464,
         x:
           position === "left"
             ? margin
@@ -149,7 +149,7 @@ const DraggableMobile = ({
 
   return (
     <motion.div
-      className={`${darkMode ? "border-white bg-primary-dark/50" : "border-primary-dark bg-primary/50"} fixed z-[9999] flex justify-center overflow-hidden border-2 backdrop-blur-[8px] md:hidden`}
+      className={`${darkMode ? "border-white bg-primary-dark/50" : "border-primary-dark bg-primary/50"} fixed z-[9999] flex flex-col items-center justify-between overflow-hidden border-2 backdrop-blur-[8px] md:hidden`}
       drag
       dragMomentum={true}
       dragElastic={0}
@@ -172,7 +172,7 @@ const DraggableMobile = ({
       onDragEnd={handleDragEnd}
       dragConstraints={dragConstraints}
     >
-      <button onClick={handleExpand} className="absolute group my-[12px] block">
+      <button onClick={handleExpand} className="group my-[12px] block">
         <span
           className={`${isMenuOpen ? "translate-y-[12px] rotate-[225deg]" : ""} my-2 block h-[4px] w-[34px] rounded-md bg-primary-dark transition duration-500 ease-in-out dark:bg-white`}
         />
