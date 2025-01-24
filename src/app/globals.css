@@ -6,7 +6,7 @@
   @apply transition-colors duration-300;
 }
 
-button {
+.button {
   @apply border-primary-dark bg-secondary text-primary-dark hover:bg-primary-dark hover:text-primary dark:border-white dark:bg-secondary-dark dark:text-white dark:hover:bg-white dark:hover:text-primary-dark;
 }
 
