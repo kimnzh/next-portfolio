@@ -123,9 +123,9 @@ const NavbarDesktop = ({ darkMode, toggleDarkMode, sections }) => {
           "fixed inset-0 z-[9999] h-[86px] max-sm:hidden xl:h-[108px] max-w-[1440px] mx-auto"
         )}
       >
-        <div className="flex h-full m-4 xl:m-12 justify-between bg-primary/50 backdrop-blur-[8px] dark:bg-primary-dark/50 rounded-[20px] border-2 border-primary-dark dark:border-white lg:rounded-[24px] xl:p-[16px] p-[10px]">
+        <div className="flex h-full m-4 xl:mt-12 justify-between bg-primary/50 backdrop-blur-[8px] dark:bg-primary-dark/50 rounded-[20px] border-2 border-primary-dark dark:border-white lg:rounded-[24px] xl:p-[16px] p-[10px]">
           <div className="flex h-full items-center">
-            <div className="ml-4 lg:ml-8 mr-4 aspect-square h-full">
+            <div className="lg:ml-8 mr-4 aspect-square h-full">
               <Logo darkMode={darkMode} />
             </div>
             <h1 className="cursor-pointer font-bold font text-xl lg:text-2xl text-primary-dark dark:text-white xl:text-3xl">

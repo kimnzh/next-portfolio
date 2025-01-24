@@ -20,14 +20,14 @@ const Instagram = ({ darkMode, className = "", isHovered = false }) => {
         stroke={getColor(darkMode, isHovered)}
         strokeWidth="4"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M39.375 14.625H39.3973"
         stroke={getColor(darkMode, isHovered)}
         strokeWidth="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
