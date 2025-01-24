@@ -120,7 +120,7 @@ const NavbarDesktop = ({ darkMode, toggleDarkMode, sections }) => {
           duration: 0.2,
         }}
         className={cn(
-          "fixed inset-0 z-[9999] h-[86px] max-md:hidden xl:h-[108px] max-w-[1440px] mx-auto"
+          "fixed inset-0 z-[9999] h-[86px] max-sm:hidden xl:h-[108px] max-w-[1440px] mx-auto"
         )}
       >
         <div className="flex h-full m-4 xl:m-12 justify-between bg-primary/50 backdrop-blur-[8px] dark:bg-primary-dark/50 rounded-[20px] border-2 border-primary-dark dark:border-white lg:rounded-[24px] xl:p-[16px] p-[8px]">
