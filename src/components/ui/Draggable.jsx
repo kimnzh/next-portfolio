@@ -13,7 +13,7 @@ const DraggableMobile = ({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [currentPosition, setCurrentPosition] = useState("left");
+  const [currentPosition, setCurrentPosition] = useState("right");
   const [initialPosition, setInitialPosition] = useState({
     x: 0,
     y: 0,
@@ -22,6 +22,7 @@ const DraggableMobile = ({
     width: 0,
     height: 0,
   });
+  const [hasAnimatedIn, setHasAnimatedIn] = useState(false);
 
   // Initialize window dimensions
   useEffect(() => {
@@ -36,6 +37,29 @@ const DraggableMobile = ({
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
+
+  useEffect(() => {
+    if (windowDimensions.width > 0 && !hasAnimatedIn) {
+      const offScreenX = windowDimensions.width + squareSize;
+      const initialY = margin;
+
+      // Set initial off-screen position
+      x.set(offScreenX);
+      y.set(initialY);
+
+      // Animate onto screen after 5 seconds
+      const timer = setTimeout(() => {
+        animate(x, windowDimensions.width - squareSize - margin, {
+          type: "spring",
+          stiffness: 300,
+          damping: 20,
+        });
+        setHasAnimatedIn(true);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [windowDimensions.width, squareSize, margin, x, y]);
 
   const VELOCITY_THRESHOLD = 50;
   const SCREEN_WIDTH_THRESHOLD = 768;
@@ -86,13 +110,6 @@ const DraggableMobile = ({
   const getNearestSide = (currentX) => {
     return currentX < windowDimensions.width / 2 ? "left" : "right";
   };
-
-  useEffect(() => {
-    const initialX = margin;
-    const initialY = margin;
-    x.set(initialX);
-    y.set(initialY);
-  }, []);
 
   const handleDragEnd = (event, info) => {
     setIsDragging(false);
@@ -150,7 +167,7 @@ const DraggableMobile = ({
   return (
     <motion.div
       className={`${darkMode ? "border-white bg-primary-dark/50" : "border-primary-dark bg-primary/50"} fixed z-[9999] flex flex-col items-center justify-between overflow-hidden border-2 backdrop-blur-[8px] md:hidden`}
-      drag
+      drag={hasAnimatedIn}
       dragMomentum={true}
       dragElastic={0}
       style={{
