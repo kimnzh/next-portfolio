@@ -7,7 +7,7 @@ import MotionWrapper from "@/components/elements/MotionWrapper";
 import Instagram from "@/components/vectors/profile/Instagram";
 import LinkedIn from "@/components/vectors/profile/LinkedIn";
 import Github from "@/components/vectors/profile/Github";
-import { delay, easeIn, easeOut } from "framer-motion";
+import { easeIn, easeOut } from "framer-motion";
 
 const Profile = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -72,7 +72,7 @@ const Profile = () => {
               <span className="profile-span">nizam</span> ]
             </div>
           </div>
-          <div className="overflow-auto text-sm sm:text-lg sm:max-lg:max-h-48 lg:text-2xl leading-relaxed text-primary-dark dark:text-white">
+          <div className="overflow-auto text-sm sm:text-lg sm:max-lg:max-h-48 lg:text-2xl !leading-relaxed text-primary-dark dark:text-white">
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Praesentium perspiciatis accusantium officiis! Esse voluptatum
