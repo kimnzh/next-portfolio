@@ -19,11 +19,11 @@ export default {
           dark: "#0f172a",
         },
         secondary: {
-          DEFAULT: "#dcdee0",
+          DEFAULT: "#e5e9ed",
           dark: "#040a27",
         },
         tertiary: {
-          DEFAULT: "#e5e9ed",
+          DEFAULT: "#dcdee0",
           dark: "#020617",
         },
       },
