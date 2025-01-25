@@ -20,8 +20,8 @@ const Experience = () => {
             <div className="absolute top-4 right-4 rounded-full bg-primary-dark dark:bg-white text-white dark:text-primary-dark inline-block py-0.5 px-3 font-semibold">
               {data.category}
             </div>
-            <div className="md:w-56 max-md:h-56 p-8 sm:p-4 md:p-12 flex-shrink-0 max-md:mt-10">
-              <div className="relative w-full h-full rounded-full overflow-hidden">
+            <div className="flex items-center justify-center md:w-56 max-md:h-56 p-8 sm:p-4 md:p-12 flex-shrink-0 max-md:mt-10">
+              <div className="relative md:w-full max-md:h-full aspect-square  rounded-full border-2 border-primary-dark dark:border-white overflow-hidden">
                 <Image
                   src={data.img}
                   alt="image"
@@ -49,11 +49,11 @@ const Experience = () => {
                     <div className="text-primary-dark dark:text-white max-md:text-end">
                       {history.date}
                     </div>
-                    <div className="text-primary-dark dark:text-white">
-                      <div className="text-end text-2xl sm:text-3xl">
+                    <div>
+                      <div className="text-end text-2xl sm:text-3xl text-primary-dark dark:text-white">
                         {history.position}
                       </div>
-                      <div className="text-end text-xl sm:text-2xl">
+                      <div className="text-end text-xl sm:text-2xl text-primary-dark dark:text-white">
                         {history.name}
                       </div>
                     </div>
