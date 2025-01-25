@@ -2,7 +2,13 @@
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-const MotionWrapper = ({ children, className, variants, transition }) => {
+const MotionWrapper = ({
+  children,
+  className,
+  variants,
+  transition,
+  ...props
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -21,6 +27,7 @@ const MotionWrapper = ({ children, className, variants, transition }) => {
       variants={variants}
       transition={transition}
       className={className}
+      {...props}
     >
       {children}
     </motion.div>

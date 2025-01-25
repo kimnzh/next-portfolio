@@ -18,14 +18,14 @@ const Profile = () => {
       label: "Instagram",
       hoveredState: useState(false),
       class: "top-10 right-4 sm:top-24 sm:right-0",
-      transition: { duration: 0.2, delay: 1.2, easeOut },
+      transition: { duration: 0.2, delay: 1.4, easeOut },
     },
     {
       hook: LinkedIn,
       label: "LinkedIn",
       hoveredState: useState(false),
       class: "bottom-2 right-10 sm:bottom-20 sm:right-6",
-      transition: { duration: 0.2, delay: 1, easeOut },
+      transition: { duration: 0.2, delay: 1.1, easeOut },
     },
     {
       hook: Github,
@@ -115,9 +115,12 @@ const Profile = () => {
           </MotionWrapper>
           <div className="lg:mt-8 flex flex-row-reverse pl-[10%] justify-evenly xl:justify-between">
             {assets.map((asset, idx) => (
-              <div key={idx} className="flex justify-center">
+              <div
+                key={idx}
+                className={`${asset.class} max-lg:absolute flex justify-center group hover:scale-125 rounded-full  transition-all`}
+              >
                 <MotionWrapper
-                  className={`${asset.class} max-lg:absolute peer h-20 xl:h-24 w-20 xl:w-24 rounded-full border-4 border-primary-dark p-4 transition-all bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white md:hover:scale-125`}
+                  className="h-20 xl:h-24 w-20 xl:w-24 rounded-full border-4 border-primary-dark p-4 bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white"
                   variants={{
                     hidden: { scale: 0 },
                     visible: { scale: 1 },
@@ -131,7 +134,7 @@ const Profile = () => {
                     isHovered={asset.hoveredState[0]}
                   />
                 </MotionWrapper>
-                <div className="max-lg:hidden absolute font-semibold text-lg text-primary-dark opacity-0 transition peer-hover:translate-y-[7rem] peer-hover:opacity-100 dark:text-white">
+                <div className="max-lg:hidden absolute font-semibold text-primary-dark opacity-0 transition group-hover:translate-y-[6.5rem] group-hover:opacity-100 dark:text-white">
                   {asset.label}
                 </div>
               </div>
