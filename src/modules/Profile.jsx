@@ -81,7 +81,7 @@ const Profile = () => {
               <div key={idx} className="flex justify-center">
                 <div
                   key={idx}
-                  className={`${asset.class} max-lg:absolute peer aspect-square w-20 xl:w-24 rounded-full border-4 border-primary-dark p-4 transition-all bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white md:hover:scale-125`}
+                  className={`${asset.class} max-lg:absolute peer h-20 xl:h-24 w-20 xl:w-24 rounded-full border-4 border-primary-dark p-4 transition-all bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white md:hover:scale-125`}
                   onMouseOver={() => asset.hoveredState[1](true)}
                   onMouseOut={() => asset.hoveredState[1](false)}
                 >
