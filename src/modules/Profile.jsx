@@ -2,9 +2,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useDarkMode } from "@/app/providers/DarkModeProvider";
+import MotionWrapper from "@/components/elements/MotionWrapper";
+
 import Instagram from "@/components/vectors/profile/Instagram";
 import LinkedIn from "@/components/vectors/profile/LinkedIn";
 import Github from "@/components/vectors/profile/Github";
+import { delay, easeIn, easeOut } from "framer-motion";
 
 const Profile = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -15,26 +18,46 @@ const Profile = () => {
       label: "Instagram",
       hoveredState: useState(false),
       class: "top-10 right-4 sm:top-24 sm:right-0",
+      transition: { duration: 0.3, delay: 1.6, easeOut },
     },
     {
       hook: LinkedIn,
       label: "LinkedIn",
       hoveredState: useState(false),
       class: "bottom-2 right-10 sm:bottom-20 sm:right-6",
+      transition: { duration: 0.3, delay: 1.3, easeOut },
     },
     {
       hook: Github,
       label: "Github",
       hoveredState: useState(false),
       class: "bottom-32 left-0 sm:bottom-52 sm:left-4",
+      transition: { duration: 0.3, delay: 1, easeOut },
     },
   ];
 
   return (
-    <section className="min-h-screen pt-36 sm:pt-[118px] xl:pt-[204px]">
+    <section className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px]">
       <div className="flex max-sm:items-center max-sm:flex-col h-full w-full">
-        <div className="rounded-[32px] sm:rounded-[40px] sm:flex-[5] border-2 border-primary-dark bg-primary p-8 sm:p-10 xl:p-12 dark:border-white dark:bg-primary-dark">
-          <div className="max-sm:absolute max-sm:text-center top-20 font-semibold text-4xl sm:text-5xl lg:text-6xl text-primary-dark dark:text-white">
+        <MotionWrapper
+          className="relative w-full pl-8 mb-4 sm:hidden font-semibold text-4xl lg:text-6xl text-primary-dark dark:text-white"
+          variants={{
+            hidden: { opacity: 0, x: 100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 1, easeIn }}
+        >
+          Hello, There!
+        </MotionWrapper>
+        <MotionWrapper
+          className="rounded-[32px] sm:rounded-[40px] sm:flex-[5] border-2 border-primary-dark bg-primary p-8 sm:p-10 xl:p-12 dark:border-white dark:bg-primary-dark"
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 1, easeIn }}
+        >
+          <div className="max-sm:hidden font-semibold text-4xl sm:text-5xl lg:text-6xl text-primary-dark dark:text-white">
             Who Am I?
           </div>
           <div className="mb-6 sm:my-6">
@@ -63,25 +86,43 @@ const Profile = () => {
               Download CV
             </button>
           </div>
-        </div>
-        <h1 className="sm:hidden text-4xl font-semibold text-center mt-12 text-primary-dark dark:text-white">
+        </MotionWrapper>
+        <MotionWrapper
+          className="sm:hidden text-4xl font-semibold text-center mt-12 text-primary-dark dark:text-white"
+          variants={{
+            hidden: { opacity: 0, x: 100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 1, easeIn }}
+        >
           Get to know me further!
-        </h1>
+        </MotionWrapper>
         <div className="max-sm:h-96 max-sm:w-96 sm:flex-[4] lg:flex-[3] relative max-sm:my-12">
-          <div className="relative h-full lg:h-[70%] w-full">
+          <MotionWrapper
+            className="relative h-full lg:h-[70%] w-full"
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            transition={{ duration: 1, easeIn }}
+          >
             <Image
               src="/profile.png"
               alt="Profile"
               fill
               className="object-contain sm:pl-8"
             />
-          </div>
+          </MotionWrapper>
           <div className="lg:mt-8 flex flex-row-reverse pl-[10%] justify-evenly xl:justify-between">
             {assets.map((asset, idx) => (
               <div key={idx} className="flex justify-center">
-                <div
-                  key={idx}
+                <MotionWrapper
                   className={`${asset.class} max-lg:absolute peer h-20 xl:h-24 w-20 xl:w-24 rounded-full border-4 border-primary-dark p-4 transition-all bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white md:hover:scale-125`}
+                  variants={{
+                    hidden: { scale: 0 },
+                    visible: { scale: 1 },
+                  }}
+                  transition={asset.transition}
                   onMouseOver={() => asset.hoveredState[1](true)}
                   onMouseOut={() => asset.hoveredState[1](false)}
                 >
@@ -89,7 +130,7 @@ const Profile = () => {
                     darkMode={darkMode}
                     isHovered={asset.hoveredState[0]}
                   />
-                </div>
+                </MotionWrapper>
                 <div className="max-lg:hidden absolute font-semibold text-lg text-primary-dark opacity-0 transition peer-hover:translate-y-[7rem] peer-hover:opacity-100 dark:text-white">
                   {asset.label}
                 </div>
