@@ -57,7 +57,7 @@ const Profile = () => {
           }}
           transition={{ duration: 1, easeIn }}
         >
-          <div className="max-sm:hidden font-semibold text-4xl sm:text-5xl lg:text-6xl text-primary-dark dark:text-white">
+          <div className="max-sm:hidden font-semibold text-5xl lg:text-6xl text-primary-dark dark:text-white">
             Who Am I?
           </div>
           <div className="mb-6 sm:my-6">
