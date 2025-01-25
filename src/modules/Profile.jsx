@@ -18,21 +18,21 @@ const Profile = () => {
       label: "Instagram",
       hoveredState: useState(false),
       class: "top-10 right-4 sm:top-24 sm:right-0",
-      transition: { duration: 0.3, delay: 1.6, easeOut },
+      transition: { duration: 0.2, delay: 1.2, easeOut },
     },
     {
       hook: LinkedIn,
       label: "LinkedIn",
       hoveredState: useState(false),
       class: "bottom-2 right-10 sm:bottom-20 sm:right-6",
-      transition: { duration: 0.3, delay: 1.3, easeOut },
+      transition: { duration: 0.2, delay: 1, easeOut },
     },
     {
       hook: Github,
       label: "Github",
       hoveredState: useState(false),
       class: "bottom-32 left-0 sm:bottom-52 sm:left-4",
-      transition: { duration: 0.3, delay: 1, easeOut },
+      transition: { duration: 0.2, delay: 0.8, easeOut },
     },
   ];
 
@@ -90,7 +90,7 @@ const Profile = () => {
         <MotionWrapper
           className="sm:hidden text-4xl font-semibold text-center mt-12 text-primary-dark dark:text-white"
           variants={{
-            hidden: { opacity: 0, x: 100 },
+            hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
           transition={{ duration: 1, easeIn }}
@@ -101,7 +101,7 @@ const Profile = () => {
           <MotionWrapper
             className="relative h-full lg:h-[70%] w-full"
             variants={{
-              hidden: { opacity: 0, x: -100 },
+              hidden: { opacity: 0, x: 100 },
               visible: { opacity: 1, x: 0 },
             }}
             transition={{ duration: 1, easeIn }}

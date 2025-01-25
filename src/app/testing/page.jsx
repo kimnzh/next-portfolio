@@ -7,8 +7,6 @@ export default function Page() {
       <Navbar />
       <main className="h-[2000px] max-w-[1440px] overflow-hidden px-8 sm:px-12 xl:px-24">
         <Profile />
-        <Profile />
-        <Profile />
       </main>
     </>
   );
