@@ -65,12 +65,12 @@ const NavbarMobile = ({ darkMode, toggleDarkMode, sections }) => {
         {sections.map((section, idx) => (
           <div
             key={idx}
-            className="relative mt-[10px] flex aspect-square w-full items-center justify-center rounded-[12px] border-2 border-primary-dark dark:border-white"
+            className="relative mt-[10px] flex aspect-square w-full items-center justify-center rounded-full border-2 border-primary-dark dark:border-white"
             onMouseOver={() => section.hoveredState[1](true)}
             onMouseOut={() => section.hoveredState[1](false)}
           >
             <div
-              className={`${section.hoveredState[0] ? "bg-primary-dark dark:bg-white" : ""} absolute h-full w-full rounded-[10px] transition duration-300`}
+              className={`${section.hoveredState[0] ? "bg-primary-dark dark:bg-white" : ""} absolute inset-0 rounded-full transition duration-300`}
             />
             <section.hook
               darkMode={darkMode}

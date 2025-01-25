@@ -18,7 +18,7 @@ const Profile = () => {
     },
     {
       hook: LinkedIn,
-      label: "Linked In",
+      label: "LinkedIn",
       hoveredState: useState(false),
       class: "bottom-2 right-10 sm:bottom-20 sm:right-6",
     },
