@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import { ExperienceDatas } from "@/lib/constants";
-import MotionWrapper from "@/components/elements/MotionWrapper";
-import { easeIn } from "framer-motion";
 
 const Experience = () => {
   return (
@@ -34,7 +32,7 @@ const Experience = () => {
               </div>
             </div>
             <div
-              className={`${data.histories.length > 1 ? "pr-8 sm:pr-16" : "pr-2 sm:pr-8"} flex flex-grow flex-col pl-2 sm:max-md:pl-4 md:pt-10 `}
+              className={`${data.histories.length > 1 ? "pr-8 sm:pr-16" : "pr-3 sm:pr-8"} flex flex-grow flex-col pl-3 sm:max-md:pl-4 md:pt-10 `}
             >
               {data.histories.map((history, idx) => (
                 <div key={idx} className="relative w-full pt-4">
@@ -62,7 +60,7 @@ const Experience = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="w-full max-md:text-sm bg-secondary dark:bg-secondary-dark pt-4 border-2 border-primary-dark dark:border-white rounded-[24px] sm:rounded-[20px] p-4 dark:text-white text-primary-dark my-2 sm:my-4">
+                    <div className="w-full max-md:text-sm bg-secondary dark:bg-secondary-dark pt-4 border-2 border-primary-dark dark:border-white rounded-[24px] sm:rounded-[20px] p-4 dark:text-white text-primary-dark my-3 sm:my-4">
                       {history.desc}
                     </div>
                   </div>

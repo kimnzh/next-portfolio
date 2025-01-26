@@ -2,12 +2,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useDarkMode } from "@/app/providers/DarkModeProvider";
-import MotionWrapper from "@/components/elements/MotionWrapper";
 
 import Instagram from "@/components/vectors/profile/Instagram";
 import LinkedIn from "@/components/vectors/profile/LinkedIn";
 import Github from "@/components/vectors/profile/Github";
-import { easeIn, easeOut } from "framer-motion";
+import { easeOut } from "framer-motion";
 
 const Profile = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
