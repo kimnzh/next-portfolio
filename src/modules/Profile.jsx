@@ -31,7 +31,7 @@ const Profile = () => {
       hook: Github,
       label: "Github",
       hoveredState: useState(false),
-      class: "bottom-32 left-0 sm:bottom-52 sm:left-4",
+      class: "bottom-32 sm:bottom-52 left-4",
       transition: { duration: 0.2, delay: 0.8, easeOut },
     },
   ];
@@ -40,7 +40,7 @@ const Profile = () => {
     <section className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px]">
       <div className="flex max-sm:items-center max-sm:flex-col h-full w-full">
         <MotionWrapper
-          className="relative w-full pl-8 mb-4 sm:hidden font-semibold text-4xl lg:text-6xl text-primary-dark dark:text-white"
+          className="relative w-full underline mb-4 sm:hidden font-semibold text-4xl lg:text-6xl text-primary-dark dark:text-white"
           variants={{
             hidden: { opacity: 0, x: 100 },
             visible: { opacity: 1, x: 0 },
@@ -61,7 +61,7 @@ const Profile = () => {
             Who Am I?
           </div>
           <div className="mb-6 sm:my-6">
-            <div className="glowing-text text-base sm:text-xl lg:text-3xl text-primary-dark dark:text-white">
+            <div className="glowing-text text-[17px] sm:text-xl lg:text-3xl text-primary-dark dark:text-white">
               Mu·ha·mad <span className="profile-span">Ha·kim</span> Ni·za·mi
             </div>
             <div className="text-sm sm:text-lg lg:text-2xl text-primary-dark dark:text-white">
