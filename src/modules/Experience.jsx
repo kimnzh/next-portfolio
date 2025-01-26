@@ -62,7 +62,7 @@ const Experience = () => {
                   )}
                   <div className="hover:scale-[103%] active:scale-[97%] transition">
                     <div className="flex max-lg:flex-col lg:items-center justify-between font-semibold">
-                      <div className="text-primary-dark max-md:text-sm font-medium dark:text-white max-md:text-end">
+                      <div className="text-primary-dark max-md:text-sm font-normal dark:text-white max-md:text-end">
                         {history.date}
                       </div>
                       <div>

@@ -54,3 +54,42 @@ export const ExperienceDatas = [
     ],
   },
 ];
+
+export const ProjectsDatas = [
+  {
+    title: "Lorem Ipsum",
+    category: "Category",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, distinctio assumenda. Provident ea illo quam laudantium! Vel neque maxime accusantium temporibus, at obcaecati laborum enim ratione laudantium, expedita, itaque quam minus aliquid. Quasi aut dicta enim! Aut velit similique perferendis.",
+    date: "Aug 2023",
+  },
+  {
+    title: "Lorem Ipsum",
+    category: "Category",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, distinctio assumenda. Provident ea illo quam laudantium! Vel neque maxime accusantium temporibus, at obcaecati laborum enim ratione laudantium, expedita, itaque quam minus aliquid. Quasi aut dicta enim! Aut velit similique perferendis.",
+    date: "Aug 2023",
+  },
+  {
+    title: "Lorem Ipsum",
+    category: "Category",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, distinctio assumenda. Provident ea illo quam laudantium! Vel neque maxime accusantium temporibus, at obcaecati laborum enim ratione laudantium, expedita, itaque quam minus aliquid. Quasi aut dicta enim! Aut velit similique perferendis.",
+    date: "Aug 2023",
+  },
+  {
+    title: "Lorem Ipsum",
+    category: "Category",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, distinctio assumenda. Provident ea illo quam laudantium! Vel neque maxime accusantium temporibus, at obcaecati laborum enim ratione laudantium, expedita, itaque quam minus aliquid. Quasi aut dicta enim! Aut velit similique perferendis.",
+    date: "Aug 2023",
+  },
+  {
+    title: "Lorem Ipsum",
+    category: "Category",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, distinctio assumenda. Provident ea illo quam laudantium! Vel neque maxime accusantium temporibus, at obcaecati laborum enim ratione laudantium, expedita, itaque quam minus aliquid. Quasi aut dicta enim! Aut velit similique perferendis.",
+    date: "Aug 2023",
+  },
+  {
+    title: "Lorem Ipsum",
+    category: "Category",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, distinctio assumenda. Provident ea illo quam laudantium! Vel neque maxime accusantium temporibus, at obcaecati laborum enim ratione laudantium, expedita, itaque quam minus aliquid. Quasi aut dicta enim! Aut velit similique perferendis.",
+    date: "Aug 2023",
+  },
+];
