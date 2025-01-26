@@ -39,24 +39,10 @@ const Profile = () => {
   return (
     <section className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px]">
       <div className="flex max-sm:items-center max-sm:flex-col h-full w-full">
-        <MotionWrapper
-          className="relative w-full underline mb-4 sm:hidden font-semibold text-4xl lg:text-6xl text-primary-dark dark:text-white"
-          variants={{
-            hidden: { opacity: 0, x: 100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          transition={{ duration: 1, easeIn }}
-        >
+        <div className="relative w-full underline mb-4 sm:hidden font-semibold text-4xl lg:text-6xl text-primary-dark dark:text-white">
           Hello, There!
-        </MotionWrapper>
-        <MotionWrapper
-          className="rounded-[32px] sm:rounded-[40px] sm:flex-[5] border-2 border-primary-dark bg-primary p-8 sm:p-10 xl:p-12 dark:border-white dark:bg-primary-dark"
-          variants={{
-            hidden: { opacity: 0, x: -100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          transition={{ duration: 1, easeIn }}
-        >
+        </div>
+        <div className="rounded-[32px] sm:rounded-[40px] sm:flex-[5] border-2 border-primary-dark bg-primary p-8 sm:p-10 xl:p-12 dark:border-white dark:bg-primary-dark">
           <div className="max-sm:hidden font-semibold text-5xl lg:text-6xl text-primary-dark dark:text-white">
             Who Am I?
           </div>
@@ -86,46 +72,27 @@ const Profile = () => {
               Download CV
             </button>
           </div>
-        </MotionWrapper>
-        <MotionWrapper
-          className="sm:hidden text-4xl font-semibold text-center mt-12 text-primary-dark dark:text-white"
-          variants={{
-            hidden: { opacity: 0, x: -100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          transition={{ duration: 1, easeIn }}
-        >
+        </div>
+        <div className="sm:hidden text-4xl font-semibold text-center mt-12 text-primary-dark dark:text-white">
           Get to know me further!
-        </MotionWrapper>
+        </div>
         <div className="max-sm:h-96 max-sm:w-96 sm:flex-[4] lg:flex-[3] relative max-sm:my-12">
-          <MotionWrapper
-            className="relative h-full lg:h-[70%] w-full"
-            variants={{
-              hidden: { opacity: 0, x: 100 },
-              visible: { opacity: 1, x: 0 },
-            }}
-            transition={{ duration: 1, easeIn }}
-          >
+          <div className="relative h-full lg:h-[70%] w-full">
             <Image
               src="/profile.png"
               alt="Profile"
               fill
               className="object-contain sm:pl-8"
             />
-          </MotionWrapper>
+          </div>
           <div className="lg:mt-8 flex flex-row-reverse pl-[10%] justify-evenly xl:justify-between">
             {assets.map((asset, idx) => (
               <div
                 key={idx}
                 className={`${asset.class} max-lg:absolute flex justify-center group hover:scale-125 rounded-full  transition-all`}
               >
-                <MotionWrapper
+                <div
                   className="h-20 xl:h-24 w-20 xl:w-24 rounded-full border-4 border-primary-dark p-4 bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white"
-                  variants={{
-                    hidden: { scale: 0 },
-                    visible: { scale: 1 },
-                  }}
-                  transition={asset.transition}
                   onMouseOver={() => asset.hoveredState[1](true)}
                   onMouseOut={() => asset.hoveredState[1](false)}
                 >
@@ -133,7 +100,7 @@ const Profile = () => {
                     darkMode={darkMode}
                     isHovered={asset.hoveredState[0]}
                   />
-                </MotionWrapper>
+                </div>
                 <div className="max-lg:hidden absolute font-semibold text-primary-dark opacity-0 transition group-hover:translate-y-[6.5rem] group-hover:opacity-100 dark:text-white">
                   {asset.label}
                 </div>

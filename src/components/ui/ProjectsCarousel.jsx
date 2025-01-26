@@ -27,7 +27,7 @@ const ProjectsCarousel = ({ datas }) => {
   };
 
   return (
-    <div className="relative w-full flex items-center justify-center p-4">
+    <div className="absolute w-full flex items-center justify-center p-4 mt-20 xs:mt-32">
       <div className="relative overflow-hidden flex items-center justify-center w-[1440px] h-[36rem]">
         {datas.map((data, idx) => {
           const offset = idx - currentIdx;
@@ -69,7 +69,7 @@ const ProjectsCarousel = ({ datas }) => {
         })}
       </div>
 
-      <div className="absolute flex gap-6 items-center justify-center w-full -bottom-16">
+      <div className="absolute flex gap-6 items-center justify-center w-full -bottom-6 xs:-bottom-16">
         <button
           className="bg-primary-dark dark:bg-white p-2 rounded-full z-10"
           onClick={handlePrev}

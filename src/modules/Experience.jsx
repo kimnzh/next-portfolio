@@ -7,26 +7,14 @@ import { easeIn } from "framer-motion";
 const Experience = () => {
   return (
     <section className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px]">
-      <MotionWrapper
-        className="w-full underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-6 xl:mb-10"
-        variants={{
-          hidden: { opacity: 0, x: 100 },
-          visible: { opacity: 1, x: 0 },
-        }}
-        transition={{ duration: 1, easeIn }}
-      >
+      <div className="w-full underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-6 xl:mb-10">
         Things I've done, so far...
-      </MotionWrapper>
+      </div>
       <div className="sm:max-xl:mr-6">
         {ExperienceDatas.map((data, idx) => (
-          <MotionWrapper
+          <div
             key={idx}
             className="relative flex max-md:flex-col w-full mb-6 bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[36px]"
-            variants={{
-              hidden: { opacity: 0, x: -100 },
-              visible: { opacity: 1, x: 0 },
-            }}
-            transition={{ duration: 1, easeIn }}
           >
             {ExperienceDatas.length - 1 !== idx && (
               <span className="h-[calc(100%+1.5rem)] w-1 absolute bg-primary-dark dark:bg-white -right-[1.375rem] sm:-right-[2.625rem] top-8" />
@@ -81,7 +69,7 @@ const Experience = () => {
                 </div>
               ))}
             </div>
-          </MotionWrapper>
+          </div>
         ))}
       </div>
     </section>

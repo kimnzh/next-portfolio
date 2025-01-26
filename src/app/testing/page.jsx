@@ -7,9 +7,9 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen h-[2000px] max-w-[1440px] w-full overflow-hidden px-8 sm:px-12 xl:px-24 flex justify-center">
-        {/* <Profile />
-        <Experience /> */}
+      <main className="min-h-screen h-[5000px] max-w-[1440px] w-full overflow-hidden px-8 sm:px-12 xl:px-24">
+        <Profile />
+        <Experience />
         <Projects />
       </main>
     </>
