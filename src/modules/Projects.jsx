@@ -100,7 +100,7 @@ const Projects = () => {
             <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
               Hakim
             </h2>
-            <div className="w-full h-full absolute z-20 top-0 rounded-[24px]" />
+            <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
             <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
               <Image
                 src="dark/logo.svg"
@@ -114,7 +114,7 @@ const Projects = () => {
             <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
               Hakim
             </h2>
-            <div className="w-full h-full absolute z-20 top-0 rounded-[24px]" />
+            <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
             <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
               <Image
                 src="dark/logo.svg"
@@ -128,7 +128,7 @@ const Projects = () => {
             <h2 className="text-2xl h-full w-full absolute flex justify-center items-center text-primary-dark dark:text-white top-0 dark:font-light z-20 opacity-0 group-hover:opacity-100 transition">
               Hakim
             </h2>
-            <div className="w-full h-full absolute z-20 top-0 rounded-[24px]" />
+            <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
             <div className="w-full h-full absolute group-hover:bg-primary/50 dark:group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
             <div className="relative w-full h-full origin-top">
               <Image
