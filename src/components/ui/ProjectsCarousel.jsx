@@ -52,7 +52,7 @@ const ProjectsCarousel = ({ datas }) => {
                 zIndex: offset === 0 ? 10 : 5,
               }}
               transition={{ duration: 0.5 }}
-              drag={offset === 0 ? "x" : false}
+              drag={offset === 0 ? "x" : "false"}
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
               onClick={
