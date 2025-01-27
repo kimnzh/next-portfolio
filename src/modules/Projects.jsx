@@ -87,10 +87,10 @@ const Projects = () => {
       </div>
       <ProjectsCarousel datas={ProjectsDatas} />
       <div className="relative w-full flex flex-col items-center bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[36px] px-2 py-6">
-        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 left-12" />
-        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 right-12" />
-        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 left-12" />
-        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 right-12" />
+        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 left-12" />
+        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 right-12" />
+        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 left-12" />
+        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 right-12" />
         <div className="text-primary-dark text-3xl xl:text-4xl font-semibold dark:text-white">
           My Tech Stack
         </div>
