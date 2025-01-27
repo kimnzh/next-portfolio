@@ -96,10 +96,11 @@ const Projects = () => {
         </div>
         <Tabs />
         <div className="w-[16rem] sm:w-[36rem] min-[960px]:w-[44rem] xl:w-[60rem] grid grid-cols-2 sm:grid-cols-4 min-[960px]:grid-cols-5 xl:grid-cols-6 gap-6 xl:gap-10 mb-16">
-          <div className="relative flex justify-center group p-4 w-full aspect-square bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">
+          <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">
             <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
               Hakim
             </h2>
+            <div className="w-full h-full absolute z-20 top-0 rounded-[24px]" />
             <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
               <Image
                 src="dark/logo.svg"
@@ -109,10 +110,11 @@ const Projects = () => {
               />
             </div>
           </div>
-          <div className="w-full aspect-square relative flex justify-center group p-4">
+          <div className="w-32 h-32 relative flex justify-center group p-4">
             <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
               Hakim
             </h2>
+            <div className="w-full h-full absolute z-20 top-0 rounded-[24px]" />
             <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
               <Image
                 src="dark/logo.svg"
@@ -122,10 +124,11 @@ const Projects = () => {
               />
             </div>
           </div>
-          <div className="relative flex justify-center group p-4 w-full aspect-square bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white overflow-hidden rounded-[24px]">
+          <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white overflow-hidden rounded-[24px]">
             <h2 className="text-2xl h-full w-full absolute flex justify-center items-center text-primary-dark dark:text-white top-0 dark:font-light z-20 opacity-0 group-hover:opacity-100 transition">
-              React.js
+              Hakim
             </h2>
+            <div className="w-full h-full absolute z-20 top-0 rounded-[24px]" />
             <div className="w-full h-full absolute group-hover:bg-primary/50 dark:group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
             <div className="relative w-full h-full origin-top">
               <Image
@@ -136,9 +139,9 @@ const Projects = () => {
               />
             </div>
           </div>
-          <div className="w-full aspect-square bg-white"></div>
-          <div className="w-full aspect-square bg-white"></div>
-          <div className="w-full aspect-square bg-white"></div>
+          <div className="w-32 h-32 bg-white"></div>
+          <div className="w-32 h-32 bg-white"></div>
+          <div className="w-32 h-32 bg-white"></div>
         </div>
       </div>
     </section>
