@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} all sm:flex justify-center font-poppins bg-tertiary dark:bg-tertiary-dark`}
+        className={`${poppins.variable} all sm:flex flex-col items-center font-poppins bg-tertiary dark:bg-tertiary-dark`}
       >
         <Providers>{children}</Providers>
       </body>

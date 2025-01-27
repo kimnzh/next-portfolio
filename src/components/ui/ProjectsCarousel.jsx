@@ -45,14 +45,14 @@ const ProjectsCarousel = ({ datas }) => {
           return (
             <motion.div
               key={idx}
-              className={`${idx !== currentIdx && "cursor-pointer"} absolute w-[352px] xs:w-[480px] rounded-[28px] text-white bg-primary dark:bg-primary-dark p-4 border-2 border-primary-dark dark:border-white`}
+              className={`${offset === 0 ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"} absolute w-[352px] xs:w-[480px] rounded-[28px] text-white bg-primary dark:bg-primary-dark p-4 border-2 border-primary-dark dark:border-white`}
               animate={{
                 x: `${xTranslate}%`,
                 scale: offset === 0 ? 1 : 0.8,
                 zIndex: offset === 0 ? 10 : 5,
               }}
               transition={{ duration: 0.5 }}
-              drag={offset === 0 ? "x" : false}
+              drag={offset === 0 ? "x" : "false"}
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
               onClick={

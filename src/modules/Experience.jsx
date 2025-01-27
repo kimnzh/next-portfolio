@@ -22,7 +22,7 @@ const Experience = () => {
               {data.category}
             </div>
             <div className="flex items-center justify-center md:w-56 max-md:h-36 p-4 md:p-12 flex-shrink-0 max-md:mt-10">
-              <div className="relative md:w-full max-md:h-full aspect-square  rounded-full border-2 border-primary-dark dark:border-white overflow-hidden">
+              <div className="relative md:w-full max-md:h-full aspect-square rounded-full border-2 border-primary-dark dark:border-white overflow-hidden">
                 <Image
                   src={data.img}
                   alt="image"
