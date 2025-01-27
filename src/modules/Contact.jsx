@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <section className="pt-20 sm:pt-[118px] xl:pt-[204px] pb-36">
+    <section className="pt-20 sm:pt-[118px] xl:pt-[204px] pb-24 md:pb-36">
       <div className="w-full text-start underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-4 xl:mb-8">
         Reach Me Out!
       </div>

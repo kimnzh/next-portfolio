@@ -1,4 +1,5 @@
 import Navbar from "@/components/elements/Navbar";
+import Footer from "@/components/elements/Footer";
 import Profile from "@/modules/Profile";
 import Experience from "@/modules/Experience";
 import Projects from "@/modules/Projects";
@@ -14,6 +15,7 @@ export default function Page() {
         <Projects />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
