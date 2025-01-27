@@ -87,14 +87,18 @@ const Projects = () => {
         My Projects
       </div>
       <ProjectsCarousel datas={ProjectsDatas} />
-      <div className="w-full flex flex-col items-center bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[36px] px-2 py-6">
+      <div className="relative w-full flex flex-col items-center bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[36px] px-2 py-6">
+        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 left-12" />
+        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 right-12" />
+        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 left-12" />
+        <span className="absolute w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 right-12" />
         <div className="text-primary-dark text-3xl xl:text-4xl font-semibold dark:text-white">
           My Tech Stack
         </div>
         <Tabs />
-        <div className="w-[16rem] sm:w-[36rem] min-[960px]:w-[44rem] xl:w-[60rem] grid grid-cols-2 sm:grid-cols-4 min-[960px]:grid-cols-5 xl:grid-cols-6 gap-6 xl:gap-10">
+        <div className="w-[16rem] sm:w-[36rem] min-[960px]:w-[44rem] xl:w-[60rem] grid grid-cols-2 sm:grid-cols-4 min-[960px]:grid-cols-5 xl:grid-cols-6 gap-6 xl:gap-10 mb-16">
           <div className="relative flex justify-center group p-4 w-full aspect-square bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">
-            <h2 className="text-lg absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
+            <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
               Hakim
             </h2>
             <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
@@ -107,7 +111,7 @@ const Projects = () => {
             </div>
           </div>
           <div className="w-full aspect-square relative flex justify-center group p-4">
-            <h2 className="text-lg absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
+            <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
               Hakim
             </h2>
             <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
@@ -120,10 +124,10 @@ const Projects = () => {
             </div>
           </div>
           <div className="relative flex justify-center group p-4 w-full aspect-square bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white overflow-hidden rounded-[24px]">
-            <h2 className="text-lg h-full w-full absolute flex justify-center items-center text-primary-dark dark:text-white top-0 dark:font-light z-20 opacity-0 group-hover:opacity-100 transition">
-              Hakim
+            <h2 className="text-2xl h-full w-full absolute flex justify-center items-center text-primary-dark dark:text-white top-0 dark:font-light z-20 opacity-0 group-hover:opacity-100 transition">
+              React.js
             </h2>
-            <div className="w-full h-full absolute group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
+            <div className="w-full h-full absolute group-hover:bg-primary/50 dark:group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
             <div className="relative w-full h-full origin-top">
               <Image
                 src="dark/logo.svg"
