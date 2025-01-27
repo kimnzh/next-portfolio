@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 import ProjectsCarousel from "@/components/ui/ProjectsCarousel";
-import TabSelect from "@/components/ui/TabSelect";
 
 import { ProjectsDatas } from "@/lib/constants";
 import Image from "next/image";
@@ -54,7 +53,7 @@ const Tabs = () => {
           ))}
         </motion.ul>
       )}
-      <ul className="max-md:hidden w-[48rem] grid grid-cols-5 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white py-2 divide-x divide-primary-dark dark:divide-white rounded-[12px]">
+      <ul className="max-md:hidden w-[48rem] grid grid-cols-5 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white py-2 divide-x divide-primary-dark dark:divide-white rounded-[16px]">
         {tabs.map((tab) => (
           <li
             key={tab.id}
@@ -64,7 +63,7 @@ const Tabs = () => {
             {selectedTab.id === tab.id && (
               <motion.div
                 layoutId="active-pill"
-                className="absolute right-1 left-1 -bottom-1 -top-1 bg-primary dark:bg-[#18274a] border-[1px] border-primary-dark dark:border-white rounded-[8px]"
+                className="absolute right-1 left-1 -bottom-1 -top-1 bg-primary dark:bg-[#18274a] border-[1px] border-primary-dark dark:border-white rounded-[10px]"
               />
             )}
             <span className="relative z-10 text-primary-dark dark:text-white">
@@ -81,7 +80,7 @@ const Projects = () => {
   return (
     <section className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px] flex flex-col items-center">
       <div className="w-full text-start underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-4 xl:mb-8">
-        Stuff I've Created
+        Stuff I've created
       </div>
       <div className="text-primary-dark text-3xl xl:text-4xl font-semibold dark:text-white mb-[40rem] xs:mb-[46rem]">
         My Projects
