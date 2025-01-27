@@ -1,16 +1,20 @@
 "use client";
 import Image from "next/image";
+import Animated from "@/components/ui/Animated";
 import { ExperienceDatas } from "@/lib/constants";
 
 const Experience = () => {
   return (
-    <section className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px]">
-      <div className="w-full underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-6 xl:mb-10">
+    <section id="experience" className="min-h-screen pt-12">
+      <Animated
+        direction="left"
+        className="w-full underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-6 xl:mb-10"
+      >
         Things I've done, so far...
-      </div>
+      </Animated>
       <div className="sm:max-xl:mr-6">
         {ExperienceDatas.map((data, idx) => (
-          <div
+          <Animated
             key={idx}
             className="relative flex max-md:flex-col w-full mb-6 bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[36px]"
           >
@@ -67,7 +71,7 @@ const Experience = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </Animated>
         ))}
       </div>
     </section>

@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import ProjectCard from "./ProjectCard";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+
+import ProjectCard from "./ProjectCard";
+import Animated from "./Animated";
 
 const ProjectsCarousel = ({ datas }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -27,7 +29,10 @@ const ProjectsCarousel = ({ datas }) => {
   };
 
   return (
-    <div className="absolute w-full flex items-center justify-center p-4 mt-20 xs:mt-32">
+    <Animated
+      direction="bottom"
+      className="absolute w-full flex items-center justify-center p-4 mt-20 xs:mt-32"
+    >
       <div className="relative overflow-hidden flex items-center justify-center w-[1440px] h-[36rem]">
         {datas.map((data, idx) => {
           const offset = idx - currentIdx;
@@ -95,7 +100,7 @@ const ProjectsCarousel = ({ datas }) => {
           <ChevronRight className="text-white dark:text-primary-dark" />
         </button>
       </div>
-    </div>
+    </Animated>
   );
 };
 

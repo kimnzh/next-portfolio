@@ -1,10 +1,19 @@
+"use client";
+import Animated from "@/components/ui/Animated";
+
 const Contact = () => {
   return (
-    <section className="pt-20 sm:pt-[118px] xl:pt-[204px] pb-24 md:pb-36">
-      <div className="w-full text-start underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-4 xl:mb-8">
-        Reach Me Out!
-      </div>
-      <div className="relative w-full grid gap-6 md:gap-8 grid-cols-2 md:grid-cols-[1fr_2fr] bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[24px] md:rounded-[36px] p-[42px_24px_24px] md:p-[56px_32px_32px]">
+    <section
+      id="contact"
+      className="pt-20 sm:pt-[118px] xl:pt-[204px] pb-24 md:pb-36"
+    >
+      <Animated
+        direction="left"
+        className="w-full text-start underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-4 xl:mb-8"
+      >
+        Reach me out!
+      </Animated>
+      <Animated className="relative w-full grid gap-6 md:gap-8 grid-cols-2 md:grid-cols-[1fr_2fr] bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[24px] md:rounded-[36px] p-[42px_24px_24px] md:p-[56px_32px_32px]">
         <div className="relative">
           <input
             type="text"
@@ -42,7 +51,7 @@ const Contact = () => {
         <div className="flex items-center text-xl text-primary-dark max-md:col-span-2 max-md:row-start-4 max-md:-my-2 max-md:text-center dark:text-white">
           Feel free to message me!
         </div>
-      </div>
+      </Animated>
     </section>
   );
 };
