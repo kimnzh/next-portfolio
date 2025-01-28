@@ -12,37 +12,30 @@ import Life from "@/modules/Life";
 export default function Page() {
   const searchParams = useSearchParams();
 
-  // Navigate to a specific section
   function navigateTo(sectionId) {
-    // Update the URL hash dynamically
-    const newUrl = `${window.location.origin}${window.location.pathname}#${sectionId}`;
-    window.history.pushState({}, "", newUrl);
+    window.history.pushState({}, "", `/testing#${sectionId}`);
 
-    // Scroll to the target section
+    // Scroll to section
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({
+      const offset = section.offsetTop;
+      window.scrollTo({
+        top: offset,
         behavior: "smooth",
-        block: "start",
       });
-    } else {
-      console.error(`Section with ID "${sectionId}" not found.`);
     }
   }
 
-  // Handle scrolling to a section on page load based on the URL hash
   useEffect(() => {
-    const hash = window.location.hash.replace("#", ""); // Extract hash without `#`
+    const hash = window.location.hash.replace("#", "");
     if (hash) {
       const section = document.getElementById(hash);
       if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      } else {
-        console.warn(`Section with ID "${hash}" not found on page load.`);
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 100);
       }
+    } else {
     }
   }, [searchParams]);
 
