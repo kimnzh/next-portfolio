@@ -13,7 +13,8 @@ const Content = () => {
   const searchParams = useSearchParams();
 
   function navigateTo(sectionId) {
-    window.history.pushState(null, null, `/testing#${sectionId}`);
+    window.history.pushState({}, "", `/testing#${sectionId}`);
+
     const section = document.getElementById(sectionId);
     if (section) {
       const offset = section.offsetTop;
@@ -25,11 +26,17 @@ const Content = () => {
   }
 
   useEffect(() => {
-    if (window.location.hash) {
-      window.history.pushState(null, null, window.location.pathname);
-      window.scrollTo(0, 0);
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      const section = document.getElementById(hash);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    } else {
     }
-  }, []);
+  }, [searchParams]);
 
   return (
     <>
