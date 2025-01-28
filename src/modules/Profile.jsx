@@ -13,6 +13,7 @@ const words = [
   "CS Student",
   "Software Engineer",
   "Full-Stack Developer",
+  "UI/UX Designer",
   "Data Science Enthusiast",
   "Problem Software",
   "Full-Time Learner",

@@ -1,7 +1,6 @@
 "use client";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 import Navbar from "@/components/elements/Navbar";
 import Footer from "@/components/elements/Footer";
 import Profile from "@/modules/Profile";
@@ -15,7 +14,6 @@ const Content = () => {
 
   function navigateTo(sectionId) {
     window.history.pushState({}, "", `/testing#${sectionId}`);
-
     const section = document.getElementById(sectionId);
     if (section) {
       const offset = section.offsetTop;
@@ -27,17 +25,11 @@ const Content = () => {
   }
 
   useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      const section = document.getElementById(hash);
-      if (section) {
-        setTimeout(() => {
-          section.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    } else {
+    if (window.location.hash) {
+      window.history.pushState("", document.title, window.location.pathname);
+      window.scrollTo(0, 0);
     }
-  }, [searchParams]);
+  }, []);
 
   return (
     <>

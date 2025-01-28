@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const UnderDevelopment = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-tertiary-dark pt-[25vh]">
+    <main className="flex min-h-screen w-full flex-col items-center bg-tertiary-dark pt-[25vh]">
       <div className="relative aspect-square w-48 md:w-64">
         <Image src="/dark/logo-glow.svg" alt={"logo"} fill />
       </div>
