@@ -50,7 +50,11 @@ const ProjectCard = ({ data, offset }) => {
               key={idx}
               className="h-full aspect-square relative cursor-pointer"
             >
-              <Image src={`/stacks/${stack}.svg`} alt={stack} fill />
+              <Image
+                src={`/stacks/${stack.replace(/\s/g, "").toLowerCase()}.svg`}
+                alt={stack}
+                fill
+              />
             </div>
           ))}
         </div>
