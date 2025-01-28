@@ -13,7 +13,7 @@ const Content = () => {
   const searchParams = useSearchParams();
 
   function navigateTo(sectionId) {
-    window.history.pushState({}, "", `/testing#${sectionId}`);
+    window.history.pushState(null, null, `/testing#${sectionId}`);
     const section = document.getElementById(sectionId);
     if (section) {
       const offset = section.offsetTop;
@@ -26,7 +26,7 @@ const Content = () => {
 
   useEffect(() => {
     if (window.location.hash) {
-      window.history.pushState("", document.title, window.location.pathname);
+      window.history.pushState(null, null, window.location.pathname);
       window.scrollTo(0, 0);
     }
   }, []);
