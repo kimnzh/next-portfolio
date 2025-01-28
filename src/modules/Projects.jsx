@@ -123,7 +123,7 @@ const Projects = () => {
               <div className="w-full h-full absolute group-hover:bg-primary/50 dark:group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
               <div className="relative w-full h-full origin-top">
                 <Image
-                  src={`/stacks/${stack.name.replace(/\s/g, "")}.svg`}
+                  src={`/stacks/${stack.name.replace(/\s/g, "").toLowerCase()}.svg`}
                   alt="image"
                   fill
                   className="object-contain"
