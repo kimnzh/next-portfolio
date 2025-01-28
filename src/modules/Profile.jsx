@@ -15,7 +15,7 @@ const words = [
   "Full-Stack Developer",
   "UI/UX Designer",
   "Data Science Enthusiast",
-  "Problem Software",
+  "Problem Solver",
   "Full-Time Learner",
 ];
 
@@ -28,21 +28,21 @@ const Profile = () => {
       label: "Instagram",
       hoveredState: useState(false),
       class: "top-10 right-4 sm:top-24 sm:right-0",
-      delay: 1.1,
+      delay: 0.6,
     },
     {
       hook: LinkedIn,
       label: "LinkedIn",
       hoveredState: useState(false),
       class: "bottom-2 right-10 sm:bottom-20 sm:right-6",
-      delay: 0.9,
+      delay: 0.4,
     },
     {
       hook: Github,
       label: "Github",
       hoveredState: useState(false),
       class: "bottom-32 sm:bottom-52 left-4",
-      delay: 0.7,
+      delay: 0.2,
     },
   ];
 
@@ -71,7 +71,7 @@ const Profile = () => {
               "sm:text-lg lg:text-2xl font-semibold my-2 lg:my-4 glowing-text"
             }
           />
-          <div className="overflow-auto text-xs sm:text-sm sm:max-lg:max-h-48 lg:text-base !leading-relaxed text-primary-dark dark:text-white">
+          <div className="overflow-auto scrollbar text-xs sm:text-sm sm:max-lg:max-h-48 lg:text-base !leading-relaxed text-primary-dark dark:text-white">
             {" "}
             An undergraduate student at Universitas Indonesia, currently
             majoring in Computer Science. I began my journey here as a Computer
@@ -101,7 +101,6 @@ const Profile = () => {
         <div className="max-sm:h-96 max-sm:w-96 sm:flex-[4] lg:flex-[3] relative max-sm:my-12">
           <Animated
             direction="bottom"
-            delay={0.5}
             className="relative h-full lg:h-[70%] w-full"
           >
             <Image
@@ -120,7 +119,7 @@ const Profile = () => {
                 delay={asset.delay}
               >
                 <div
-                  className="h-20 xl:h-24 w-20 xl:w-24 rounded-full hover:scale-125 transition-all border-4 border-primary-dark p-4 bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white"
+                  className="cursor-pointer h-20 xl:h-24 w-20 xl:w-24 rounded-full hover:scale-125 transition-all border-4 border-primary-dark p-4 bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white"
                   onMouseOver={() => asset.hoveredState[1](true)}
                   onMouseOut={() => asset.hoveredState[1](false)}
                 >

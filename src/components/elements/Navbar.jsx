@@ -19,13 +19,6 @@ import Projects from "../vectors/navbar/Projects";
 import Life from "../vectors/navbar/Life";
 import DraggableMobile from "../ui/Draggable";
 
-const onNavigate = (sectionId) => {
-  window.scrollTo({
-    top: sectionOffsets[sectionId],
-    behavior: "smooth",
-  });
-};
-
 const NavbarMobile = ({ darkMode, toggleDarkMode, sections, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

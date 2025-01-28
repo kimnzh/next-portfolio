@@ -17,7 +17,6 @@ const Experience = () => {
           <Animated
             key={idx}
             className="relative flex max-md:flex-col w-full mb-6 bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[36px]"
-            threshold={data.threshold}
           >
             {ExperienceDatas.length - 1 !== idx && (
               <span className="h-[calc(100%+1.5rem)] w-1 absolute bg-primary-dark dark:bg-white -right-[1.375rem] sm:-right-[2.625rem] top-8" />

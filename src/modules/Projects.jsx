@@ -8,6 +8,7 @@ import Animated from "@/components/ui/Animated";
 
 import Image from "next/image";
 import { ProjectsDatas } from "@/lib/constants";
+import { StacksData } from "@/lib/constants";
 
 const tabs = [
   { id: 1, label: "Languages" },
@@ -17,8 +18,7 @@ const tabs = [
   { id: 5, label: "Miscellaneous" },
 ];
 
-const Tabs = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+const Tabs = ({ selectedTab, setSelectedTab }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -78,6 +78,8 @@ const Tabs = () => {
 };
 
 const Projects = () => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
   return (
     <section
       id="projects"
@@ -107,54 +109,28 @@ const Projects = () => {
         <div className="text-primary-dark text-3xl xl:text-4xl font-semibold dark:text-white">
           My Tech Stack
         </div>
-        <Tabs />
+        <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         <div className="w-[16rem] sm:w-[36rem] min-[960px]:w-[44rem] xl:w-[60rem] grid grid-cols-2 sm:grid-cols-4 min-[960px]:grid-cols-5 xl:grid-cols-6 gap-6 xl:gap-10 mb-16">
-          <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">
-            <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
-              Hakim
-            </h2>
-            <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-            <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
-              <Image
-                src="dark/logo.svg"
-                alt="image"
-                fill
-                className="object-contain"
-              />
+          {StacksData.map((stack, idx) => (
+            <div
+              key={idx}
+              className={`${selectedTab.id === stack.type || "hidden"} relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white overflow-hidden rounded-[24px]`}
+            >
+              <h2 className="text-center text-xl h-full w-full absolute flex justify-center items-center text-primary-dark dark:text-white top-0 dark:font-light z-20 opacity-0 group-hover:opacity-100 transition">
+                {stack.name}
+              </h2>
+              <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
+              <div className="w-full h-full absolute group-hover:bg-primary/50 dark:group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
+              <div className="relative w-full h-full origin-top">
+                <Image
+                  src={`/stacks/${stack.name.replace(/\s/g, "")}.svg`}
+                  alt="image"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
-          </div>
-          <div className="w-32 h-32 relative flex justify-center group p-4">
-            <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
-              Hakim
-            </h2>
-            <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-            <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
-              <Image
-                src="dark/logo.svg"
-                alt="image"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white overflow-hidden rounded-[24px]">
-            <h2 className="text-2xl h-full w-full absolute flex justify-center items-center text-primary-dark dark:text-white top-0 dark:font-light z-20 opacity-0 group-hover:opacity-100 transition">
-              Hakim
-            </h2>
-            <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-            <div className="w-full h-full absolute group-hover:bg-primary/50 dark:group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
-            <div className="relative w-full h-full origin-top">
-              <Image
-                src="dark/logo.svg"
-                alt="image"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <div className="w-32 h-32 bg-white"></div>
-          <div className="w-32 h-32 bg-white"></div>
-          <div className="w-32 h-32 bg-white"></div>
+          ))}
         </div>
       </Animated>
     </section>
@@ -162,3 +138,34 @@ const Projects = () => {
 };
 
 export default Projects;
+
+{
+  /* <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">
+      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
+        Hakim
+      </h2>
+      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
+      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
+        <Image
+          src="dark/logo.svg"
+          alt="image"
+          fill
+          className="object-contain"
+        />
+      </div>
+    </div>
+    <div className="w-32 h-32 relative flex justify-center group p-4">
+      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
+        Hakim
+      </h2>
+      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
+      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
+        <Image
+          src="dark/logo.svg"
+          alt="image"
+          fill
+          className="object-contain"
+        />
+      </div>
+    </div> */
+}

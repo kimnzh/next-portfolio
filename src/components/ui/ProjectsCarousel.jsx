@@ -50,7 +50,7 @@ const ProjectsCarousel = ({ datas }) => {
           return (
             <motion.div
               key={idx}
-              className={`${offset === 0 ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"} absolute w-[352px] xs:w-[480px] rounded-[28px] text-white bg-primary dark:bg-primary-dark p-4 border-2 border-primary-dark dark:border-white`}
+              className={`${offset === 0 ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"} absolute w-[352px] xs:w-[480px] rounded-[28px] text-white bg-primary dark:bg-primary-dark overflow-hidden p-4 border-2 border-primary-dark dark:border-white`}
               animate={{
                 x: `${xTranslate}%`,
                 scale: offset === 0 ? 1 : 0.8,
@@ -68,7 +68,7 @@ const ProjectsCarousel = ({ datas }) => {
                     : undefined
               }
             >
-              <ProjectCard data={data} />
+              <ProjectCard data={data} offset={offset} />
             </motion.div>
           );
         })}

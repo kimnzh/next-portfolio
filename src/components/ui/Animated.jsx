@@ -4,14 +4,12 @@ import { useInView } from "react-intersection-observer";
 const Animated = ({
   children,
   direction = "right",
-  threshold = 0.3,
   delay = 0,
-  distance = 50, // New prop for controlling animation distance
+  distance = 50,
   className,
 }) => {
   const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold,
+    rootMargin: "-10% 0px 0% 0px",
   });
 
   const getDirectionalOffset = () => {
@@ -50,13 +48,7 @@ const Animated = ({
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={slideVariants}
-      transition={{
-        duration: 0.8,
-        delay,
-        type: "spring",
-        damping: 25,
-        stiffness: 200,
-      }}
+      transition={{ delay }}
       className={className}
     >
       {children}
