@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import Navbar from "@/components/elements/Navbar";
 import Footer from "@/components/elements/Footer";
 import Profile from "@/modules/Profile";
@@ -9,13 +10,12 @@ import Projects from "@/modules/Projects";
 import Contact from "@/modules/Contact";
 import Life from "@/modules/Life";
 
-export default function Page() {
+function Content() {
   const searchParams = useSearchParams();
 
   function navigateTo(sectionId) {
     window.history.pushState({}, "", `/testing#${sectionId}`);
 
-    // Scroll to section
     const section = document.getElementById(sectionId);
     if (section) {
       const offset = section.offsetTop;
@@ -52,4 +52,10 @@ export default function Page() {
       <Footer />
     </>
   );
+}
+
+export default function Page() {
+  <Suspense fallback={<div>Loading...</div>}>
+    <Content />
+  </Suspense>;
 }
