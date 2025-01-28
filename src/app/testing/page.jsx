@@ -10,7 +10,7 @@ import Projects from "@/modules/Projects";
 import Contact from "@/modules/Contact";
 import Life from "@/modules/Life";
 
-function Content() {
+export default function Page() {
   const searchParams = useSearchParams();
 
   function navigateTo(sectionId) {
@@ -40,7 +40,7 @@ function Content() {
   }, [searchParams]);
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <Navbar onNavigate={navigateTo} />
       <main className="min-h-screen max-w-[1440px] w-full overflow-hidden px-8 sm:px-12 xl:px-24">
         <Profile />
@@ -50,12 +50,6 @@ function Content() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </Suspense>
   );
-}
-
-export default function Page() {
-  <Suspense fallback={<div>Loading...</div>}>
-    <Content />
-  </Suspense>;
 }
