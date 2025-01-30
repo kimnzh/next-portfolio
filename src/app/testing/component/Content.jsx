@@ -1,13 +1,15 @@
 "use client";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+
+// Sections
 import Navbar from "@/components/elements/Navbar";
 import Footer from "@/components/elements/Footer";
-import Profile from "@/modules/Profile";
-import Experience from "@/modules/Experience";
-import Projects from "@/modules/Projects";
-import Contact from "@/modules/Contact";
-import Life from "@/modules/Life";
+import ProfileSection from "@/sections/ProfileSection";
+import ExperienceSection from "@/sections/ExperienceSection";
+import ProjectsSection from "@/sections/ProjectsSection";
+import ContactSection from "@/sections/ContactSection";
+import LifeSection from "@/sections/LifeSection";
 
 const Content = () => {
   const searchParams = useSearchParams();
@@ -27,26 +29,31 @@ const Content = () => {
 
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
-    if (hash) {
+    // Check if this is a page refresh
+    const isRefresh = window.performance
+      .getEntriesByType("navigation")
+      .some((entry) => entry.type === "reload");
+
+    // Only scroll to section if it's not a refresh
+    if (hash && !isRefresh) {
       const section = document.getElementById(hash);
       if (section) {
         setTimeout(() => {
           section.scrollIntoView({ behavior: "smooth" });
         }, 100);
       }
-    } else {
     }
   }, [searchParams]);
 
   return (
     <>
       <Navbar onNavigate={navigateTo} />
-      <main className="min-h-screen max-w-[1440px] w-full overflow-hidden px-8 sm:px-12 xl:px-24">
-        <Profile />
-        <Experience />
-        <Projects />
-        <Life />
-        <Contact />
+      <main className="min-h-screen w-full max-w-[1440px] overflow-hidden px-8 sm:px-12 xl:px-24">
+        <ProfileSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <LifeSection />
+        <ContactSection />
       </main>
       <Footer />
     </>

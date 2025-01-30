@@ -6,14 +6,14 @@ const Life = () => {
     <section id="life" className="min-h-screen pt-12">
       <Animated
         direction="left"
-        className="w-full underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-6 xl:mb-10"
+        className="mb-6 w-full text-4xl font-semibold text-primary-dark underline dark:text-white max-xl:py-2 xl:mb-10 xl:text-5xl"
       >
         My journey
       </Animated>
       <Animated
         direction="bottom"
         delay={0.5}
-        className="w-full flex justify-center text-primary-dark text-3xl xl:text-4xl font-semibold dark:text-white "
+        className="flex w-full justify-center text-3xl font-semibold text-primary-dark dark:text-white xl:text-4xl"
       >
         It's quiet for now...
       </Animated>

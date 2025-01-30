@@ -28,21 +28,21 @@ const Profile = () => {
       label: "Instagram",
       hoveredState: useState(false),
       class: "top-10 right-4 sm:top-24 sm:right-0",
-      delay: 0.6,
+      delay: 1.1,
     },
     {
       hook: LinkedIn,
       label: "LinkedIn",
       hoveredState: useState(false),
       class: "bottom-2 right-10 sm:bottom-20 sm:right-6",
-      delay: 0.4,
+      delay: 0.8,
     },
     {
       hook: Github,
       label: "Github",
       hoveredState: useState(false),
       class: "bottom-32 sm:bottom-52 left-4",
-      delay: 0.2,
+      delay: 0.5,
     },
   ];
 
@@ -51,27 +51,27 @@ const Profile = () => {
       id="profile"
       className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px]"
     >
-      <div className="flex max-sm:items-center max-sm:flex-col h-full w-full">
+      <div className="flex h-full w-full max-sm:flex-col max-sm:items-center">
         <Animated
           direction="left"
-          className="relative w-full underline mb-4 sm:hidden font-semibold text-4xl lg:text-6xl text-primary-dark dark:text-white"
+          className="relative mb-4 w-full text-4xl font-semibold text-primary-dark underline dark:text-white sm:hidden lg:text-6xl"
         >
           Hello, World!
         </Animated>
-        <Animated className="rounded-[32px] sm:rounded-[40px] sm:flex-[5] border-2 border-primary-dark bg-primary p-8 sm:p-10 xl:p-12 dark:border-white dark:bg-primary-dark">
-          <div className="max-sm:hidden font-semibold text-5xl lg:text-6xl text-primary-dark dark:text-white">
+        <Animated className="rounded-[32px] border-2 border-primary-dark bg-primary p-8 dark:border-white dark:bg-primary-dark sm:flex-[5] sm:rounded-[40px] sm:p-10 xl:p-12">
+          <div className="text-5xl font-semibold text-primary-dark dark:text-white max-sm:hidden lg:text-6xl">
             Who am I?
           </div>
-          <div className="sm:mt-6 text-[17px] sm:text-xl lg:text-3xl text-primary-dark dark:text-white">
+          <div className="text-[17px] text-primary-dark dark:text-white sm:mt-6 sm:text-xl lg:text-3xl">
             Mu·ha·mad <span className="profile-span">Ha·kim</span> Ni·za·mi
           </div>
           <FlipWords
             words={words}
             className={
-              "sm:text-lg lg:text-2xl font-semibold my-2 lg:my-4 glowing-text"
+              "glowing-text my-2 font-semibold sm:text-lg lg:my-4 lg:text-2xl"
             }
           />
-          <div className="overflow-auto scrollbar text-xs sm:text-sm sm:max-lg:max-h-48 lg:text-base !leading-relaxed text-primary-dark dark:text-white">
+          <div className="scrollbar overflow-auto text-xs !leading-relaxed text-primary-dark dark:text-white sm:text-sm sm:max-lg:max-h-48 lg:text-base">
             {" "}
             An undergraduate student at Universitas Indonesia, currently
             majoring in Computer Science. I began my journey here as a Computer
@@ -87,21 +87,21 @@ const Profile = () => {
             opportunities to grow, learn, and achieve my goals.
           </div>
           <div className="mt-4 flex max-sm:justify-center">
-            <button className="button h-12 w-56 mt-4 rounded-[18px] border-2 text-center font-semibold text-xl">
+            <button className="button mt-4 h-12 w-56 rounded-[18px] border-2 text-center text-xl font-semibold">
               Download CV
             </button>
           </div>
         </Animated>
         <Animated
           direction="left"
-          className="sm:hidden text-4xl font-semibold text-center mt-12 text-primary-dark dark:text-white"
+          className="mt-12 text-center text-4xl font-semibold text-primary-dark dark:text-white sm:hidden"
         >
           Get to know me further!
         </Animated>
-        <div className="max-sm:h-96 max-sm:w-96 sm:flex-[4] lg:flex-[3] relative max-sm:my-12">
+        <div className="relative max-sm:my-12 max-sm:h-96 max-sm:w-96 sm:flex-[4] lg:flex-[3]">
           <Animated
             direction="bottom"
-            className="relative h-full lg:h-[70%] w-full"
+            className="relative h-full w-full lg:h-[70%]"
           >
             <Image
               src="/profile.png"
@@ -110,16 +110,16 @@ const Profile = () => {
               className="object-contain sm:pl-8"
             />
           </Animated>
-          <div className="lg:mt-8 flex flex-row-reverse pl-[10%] justify-evenly xl:justify-between">
+          <div className="flex flex-row-reverse justify-evenly pl-[10%] lg:mt-8 xl:justify-between">
             {assets.map((asset, idx) => (
               <Animated
                 key={idx}
                 direction="top"
-                className={`${asset.class} max-lg:absolute flex justify-center group rounded-full`}
+                className={`${asset.class} group flex justify-center rounded-full max-lg:absolute`}
                 delay={asset.delay}
               >
                 <div
-                  className="cursor-pointer h-20 xl:h-24 w-20 xl:w-24 rounded-full hover:scale-125 transition-all border-4 border-primary-dark p-4 bg-primary hover:bg-primary-dark z-20 dark:border-white dark:bg-primary-dark dark:hover:bg-white"
+                  className="z-20 h-20 w-20 cursor-pointer rounded-full border-4 border-primary-dark bg-primary p-4 transition-all hover:scale-125 hover:bg-primary-dark dark:border-white dark:bg-primary-dark dark:hover:bg-white xl:h-24 xl:w-24"
                   onMouseOver={() => asset.hoveredState[1](true)}
                   onMouseOut={() => asset.hoveredState[1](false)}
                 >
@@ -128,7 +128,7 @@ const Profile = () => {
                     isHovered={asset.hoveredState[0]}
                   />
                 </div>
-                <div className="max-lg:hidden absolute font-semibold text-primary-dark text-lg opacity-0 transition group-hover:translate-y-[7.5rem] group-hover:opacity-100 dark:text-white">
+                <div className="absolute text-lg font-semibold text-primary-dark opacity-0 transition group-hover:translate-y-[7.5rem] group-hover:opacity-100 dark:text-white max-lg:hidden">
                   {asset.label}
                 </div>
               </Animated>

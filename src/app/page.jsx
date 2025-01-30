@@ -2,7 +2,7 @@ import UnderDevelopment from "@/components/elements/UnderDevelopment";
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full font-poppins-reg">
+    <main className="font-poppins-reg min-h-screen w-full">
       <UnderDevelopment />
     </main>
   );

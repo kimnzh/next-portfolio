@@ -48,7 +48,7 @@ const FlipWords = ({ words, duration = 3000, className }) => {
           scale: 2,
           position: "absolute",
         }}
-        className={cn("z-10 inline-block relative text-left px-2", className)}
+        className={cn("relative z-10 inline-block px-2 text-left", className)}
         key={currentWord}
       >
         {/* edit suggested by Sajal: https://x.com/DewanganSajal */}

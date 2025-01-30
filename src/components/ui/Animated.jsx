@@ -9,7 +9,8 @@ const Animated = ({
   className,
 }) => {
   const [ref, inView] = useInView({
-    rootMargin: "-10% 0px 0% 0px",
+    triggerOnce: true,
+    rootMargin: "-10% 0px -10% 0px",
   });
 
   const getDirectionalOffset = () => {
@@ -48,7 +49,7 @@ const Animated = ({
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={slideVariants}
-      transition={{ delay }}
+      transition={{ delay, duration: 0.5 }}
       className={className}
     >
       {children}

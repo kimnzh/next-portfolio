@@ -22,15 +22,15 @@ const Tabs = ({ selectedTab, setSelectedTab }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="w-full my-8  flex justify-center mx-auto p-1 relative">
+    <div className="relative mx-auto my-8 flex w-full justify-center p-1">
       <div
-        className="md:hidden w-[16rem] flex items-center justify-between cursor-pointer py-2 pl-4 pr-2 border-2 border-primary-dark dark:border-white rounded-[16px] bg-secondary dark:bg-secondary-dark"
+        className="flex w-[16rem] cursor-pointer items-center justify-between rounded-[16px] border-2 border-primary-dark bg-secondary py-2 pl-4 pr-2 dark:border-white dark:bg-secondary-dark md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="font-semibold text-primary-dark dark:text-white">
           {selectedTab.label}
         </span>
-        <ChevronDown className="w-5 h-5 text-primary-dark dark:text-white" />
+        <ChevronDown className="h-5 w-5 text-primary-dark dark:text-white" />
       </div>
       {isOpen && (
         <motion.ul
@@ -38,12 +38,12 @@ const Tabs = ({ selectedTab, setSelectedTab }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden absolute w-[16rem] mt-14 border-2 border-primary-dark dark:border-white rounded-[16px] bg-secondary dark:bg-secondary-dark z-50"
+          className="absolute z-50 mt-14 w-[16rem] rounded-[16px] border-2 border-primary-dark bg-secondary dark:border-white dark:bg-secondary-dark md:hidden"
         >
           {tabs.map((tab) => (
             <li
               key={tab.id}
-              className="p-3 cursor-pointer text-primary-dark dark:text-white"
+              className="cursor-pointer p-3 text-primary-dark dark:text-white"
               onClick={() => {
                 setSelectedTab(tab);
                 setIsOpen(false);
@@ -54,17 +54,17 @@ const Tabs = ({ selectedTab, setSelectedTab }) => {
           ))}
         </motion.ul>
       )}
-      <ul className="max-md:hidden w-[48rem] grid grid-cols-5 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white py-2 divide-x divide-primary-dark dark:divide-white rounded-[16px]">
+      <ul className="grid w-[48rem] grid-cols-5 divide-x divide-primary-dark rounded-[16px] border-2 border-primary-dark bg-secondary py-2 dark:divide-white dark:border-white dark:bg-secondary-dark max-md:hidden">
         {tabs.map((tab) => (
           <li
             key={tab.id}
-            className="relative p-1 cursor-pointer text-sm text-center"
+            className="relative cursor-pointer p-1 text-center text-sm"
             onClick={() => setSelectedTab(tab)}
           >
             {selectedTab.id === tab.id && (
               <motion.div
                 layoutId="active-pill"
-                className="absolute right-1 left-1 -bottom-1 -top-1 bg-primary dark:bg-primary-dark border-[1px] border-primary-dark dark:border-white rounded-[10px]"
+                className="absolute -bottom-1 -top-1 left-1 right-1 rounded-[10px] border-[1px] border-primary-dark bg-primary dark:border-white dark:bg-primary-dark"
               />
             )}
             <span className="relative z-10 text-primary-dark dark:text-white">
@@ -83,45 +83,45 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen pt-12 flex flex-col items-center"
+      className="flex min-h-screen flex-col items-center pt-12"
     >
       <Animated
         direction="left"
-        className="w-full text-start underline text-4xl xl:text-5xl max-xl:py-2 font-semibold text-primary-dark dark:text-white mb-4 xl:mb-8"
+        className="mb-4 w-full text-start text-4xl font-semibold text-primary-dark underline dark:text-white max-xl:py-2 xl:mb-8 xl:text-5xl"
       >
         Stuff I've created
       </Animated>
       <Animated
         direction="bottom"
-        className="text-primary-dark text-3xl xl:text-4xl font-semibold dark:text-white mb-[40rem] xs:mb-[46rem]"
+        className="mb-[40rem] text-3xl font-semibold text-primary-dark dark:text-white xs:mb-[46rem] xl:text-4xl"
       >
         My Projects
       </Animated>
       <ProjectsCarousel datas={ProjectsDatas} />
       <Animated
         direction="bottom"
-        className="relative w-full flex flex-col items-center bg-primary dark:bg-primary-dark border-2 border-primary-dark dark:border-white rounded-[36px] px-2 py-6"
+        className="relative flex w-full flex-col items-center rounded-[36px] border-2 border-primary-dark bg-primary px-2 py-6 dark:border-white dark:bg-primary-dark"
       >
-        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 left-12" />
-        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white top-12 right-12" />
-        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 left-12" />
-        <span className="absolute max-sm:hidden w-3 h-3 rounded-full bg-primary-dark dark:bg-white bottom-12 right-12" />
-        <div className="text-primary-dark text-3xl xl:text-4xl font-semibold dark:text-white">
+        <span className="absolute left-12 top-12 h-3 w-3 rounded-full bg-primary-dark dark:bg-white max-sm:hidden" />
+        <span className="absolute right-12 top-12 h-3 w-3 rounded-full bg-primary-dark dark:bg-white max-sm:hidden" />
+        <span className="absolute bottom-12 left-12 h-3 w-3 rounded-full bg-primary-dark dark:bg-white max-sm:hidden" />
+        <span className="absolute bottom-12 right-12 h-3 w-3 rounded-full bg-primary-dark dark:bg-white max-sm:hidden" />
+        <div className="text-3xl font-semibold text-primary-dark dark:text-white xl:text-4xl">
           My Tech Stack
         </div>
         <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-        <div className="w-[16rem] sm:w-[36rem] min-[960px]:w-[44rem] xl:w-[60rem] grid grid-cols-2 sm:grid-cols-4 min-[960px]:grid-cols-5 xl:grid-cols-6 gap-6 xl:gap-10 mb-16">
+        <div className="mb-16 grid w-[16rem] grid-cols-2 gap-6 sm:w-[36rem] sm:grid-cols-4 min-[960px]:w-[44rem] min-[960px]:grid-cols-5 xl:w-[60rem] xl:grid-cols-6 xl:gap-10">
           {StacksData.map((stack, idx) => (
             <div
               key={idx}
-              className={`${selectedTab.id === stack.type || "hidden"} relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white overflow-hidden rounded-[24px]`}
+              className={`${selectedTab.id === stack.type || "hidden"} group relative flex h-32 w-32 justify-center overflow-hidden rounded-[24px] border-2 border-primary-dark bg-secondary p-4 dark:border-white dark:bg-secondary-dark`}
             >
-              <h2 className="text-center text-xl h-full w-full absolute flex justify-center items-center text-primary-dark dark:text-white top-0 dark:font-light z-20 opacity-0 group-hover:opacity-100 transition">
+              <h2 className="absolute top-0 z-20 flex h-full w-full items-center justify-center text-center text-xl text-primary-dark opacity-0 transition group-hover:opacity-100 dark:font-light dark:text-white">
                 {stack.name}
               </h2>
-              <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-              <div className="w-full h-full absolute group-hover:bg-primary/50 dark:group-hover:bg-primary-dark/50 z-10 top-0 group-hover:backdrop-blur-[4px] transition-all rounded-[24px]" />
-              <div className="relative w-full h-full origin-top">
+              <div className="absolute top-0 z-20 h-full w-full cursor-pointer rounded-[24px]" />
+              <div className="absolute top-0 z-10 h-full w-full rounded-[24px] transition-all group-hover:bg-primary/50 group-hover:backdrop-blur-[4px] dark:group-hover:bg-primary-dark/50" />
+              <div className="relative h-full w-full origin-top">
                 <Image
                   src={`/stacks/${stack.name.replace(/\s/g, "").toLowerCase()}.svg`}
                   alt="image"

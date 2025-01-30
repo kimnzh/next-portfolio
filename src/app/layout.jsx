@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} all sm:flex flex-col items-center font-poppins dark:bg-tertiary-dark scrollbar`}
+        className={`${poppins.variable} all scrollbar flex-col items-center font-poppins dark:bg-tertiary-dark sm:flex`}
       >
         <Providers>{children}</Providers>
       </body>

@@ -124,15 +124,15 @@ const NavbarDesktop = ({ darkMode, toggleDarkMode, sections, onNavigate }) => {
           duration: 0.2,
         }}
         className={cn(
-          "fixed inset-0 z-[9999] h-[86px] max-sm:hidden xl:h-[108px] max-w-[1440px] mx-auto"
+          "fixed inset-0 z-[9999] mx-auto h-[86px] max-w-[1440px] max-sm:hidden xl:h-[108px]"
         )}
       >
-        <div className="flex h-full m-4 xl:mt-12 justify-between bg-primary/50 backdrop-blur-[8px] dark:bg-primary-dark/50 rounded-[20px] border-2 border-primary-dark dark:border-white lg:rounded-[24px] xl:p-[16px] p-[10px]">
+        <div className="m-4 flex h-full justify-between rounded-[20px] border-2 border-primary-dark bg-primary/50 p-[10px] backdrop-blur-[8px] dark:border-white dark:bg-primary-dark/50 lg:rounded-[24px] xl:mt-12 xl:p-[16px]">
           <div className="flex h-full items-center">
-            <div className="lg:ml-8 mr-4 aspect-square h-full">
+            <div className="mr-4 aspect-square h-full lg:ml-8">
               <Logo darkMode={darkMode} />
             </div>
-            <h1 className="cursor-pointer font-bold font text-xl lg:text-2xl text-primary-dark dark:text-white xl:text-3xl">
+            <h1 className="font cursor-pointer text-xl font-bold text-primary-dark dark:text-white lg:text-2xl xl:text-3xl">
               Hakim Nizami
             </h1>
           </div>
@@ -156,7 +156,7 @@ const NavbarDesktop = ({ darkMode, toggleDarkMode, sections, onNavigate }) => {
               />
             </div>
             <div
-              className="group relative mx-4 max-lg:hidden cursor-pointer font-semibold text-xl text-primary-dark dark:text-white xl:mx-12 xl:text-2xl"
+              className="group relative mx-4 cursor-pointer text-xl font-semibold text-primary-dark dark:text-white max-lg:hidden xl:mx-12 xl:text-2xl"
               onClick={() => onNavigate("contact")}
             >
               Contact Me

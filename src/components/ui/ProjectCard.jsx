@@ -14,19 +14,19 @@ const ProjectCard = ({ data, offset }) => {
   return (
     <>
       <div
-        className={`${offset === 0 ? "hidden" : "bg-slate-100/50 dark:bg-slate-900/50 backdrop-blur-[3px]"} absolute -inset-4 z-50`}
+        className={`${offset === 0 ? "hidden" : "bg-slate-100/50 backdrop-blur-[3px] dark:bg-slate-900/50"} absolute -inset-4 z-50`}
       />
-      <div className="w-full relative aspect-video rounded-[12px] border-2 overflow-hidden border-primary-dark dark:border-white">
-        <div className="absolute grid grid-cols-2 gap-2 right-2 bottom-2 z-10">
+      <div className="relative aspect-video w-full overflow-hidden rounded-[12px] border-2 border-primary-dark dark:border-white">
+        <div className="absolute bottom-2 right-2 z-10 grid grid-cols-2 gap-2">
           <div
-            className="w-12 h-12 cursor-pointer p-2  bg-white dark:bg-primary-dark dark:hover:bg-white hover:bg-primary-dark rounded-[12px] border-2 border-primary-dark dark:border-white"
+            className="h-12 w-12 cursor-pointer rounded-[12px] border-2 border-primary-dark bg-white p-2 hover:bg-primary-dark dark:border-white dark:bg-primary-dark dark:hover:bg-white"
             onMouseOver={() => setIsGithubHovered(true)}
             onMouseOut={() => setIsGithubHovered(false)}
           >
             <Github darkMode={darkMode} isHovered={isGithubHovered} />
           </div>
           <div
-            className="w-12 h-12 cursor-pointer p-2 bg-white dark:bg-primary-dark dark:hover:bg-white hover:bg-primary-dark rounded-[12px] border-2 border-primary-dark dark:border-white"
+            className="h-12 w-12 cursor-pointer rounded-[12px] border-2 border-primary-dark bg-white p-2 hover:bg-primary-dark dark:border-white dark:bg-primary-dark dark:hover:bg-white"
             onMouseOver={() => setIsDemoHovered(true)}
             onMouseOut={() => setIsDemoHovered(false)}
           >
@@ -36,19 +36,19 @@ const ProjectCard = ({ data, offset }) => {
         <Image src={data.image} alt="image" className="object-cover" fill />
       </div>
       <div className="mt-2 p-2">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl xs:text-3xl font-semibold text-primary-dark dark:text-white">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-semibold text-primary-dark dark:text-white xs:text-3xl">
             {data.title}
           </h1>
-          <h2 className="bg-primary-dark dark:bg-white text-primary dark:text-primary-dark text-xs xs:text-sm px-3 py-1 rounded-full font-semibold">
+          <h2 className="rounded-full bg-primary-dark px-3 py-1 text-xs font-semibold text-primary dark:bg-white dark:text-primary-dark xs:text-sm">
             {data.category}
           </h2>
         </div>
-        <div className="h-6 flex gap-2 my-3">
+        <div className="my-3 flex h-6 gap-2">
           {data.stacks.map((stack, idx) => (
             <div
               key={idx}
-              className="h-full aspect-square relative cursor-pointer"
+              className="relative aspect-square h-full cursor-pointer"
             >
               <Image
                 src={`/stacks/${stack.replace(/\s/g, "").toLowerCase()}.svg`}
@@ -58,11 +58,11 @@ const ProjectCard = ({ data, offset }) => {
             </div>
           ))}
         </div>
-        <p className="text-primary-dark max-xs:text-sm dark:text-white leading-normal font-light">
+        <p className="font-light leading-normal text-primary-dark dark:text-white max-xs:text-sm">
           {data.desc}
         </p>
       </div>
-      <div className="text-end font-semibold max-xs:text-sm text-primary-dark dark:text-white">
+      <div className="text-end font-semibold text-primary-dark dark:text-white max-xs:text-sm">
         {data.date}
       </div>
     </>

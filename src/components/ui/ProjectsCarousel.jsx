@@ -31,9 +31,9 @@ const ProjectsCarousel = ({ datas }) => {
   return (
     <Animated
       direction="bottom"
-      className="absolute w-full flex items-center justify-center p-4 mt-20 xs:mt-32"
+      className="absolute mt-20 flex w-full items-center justify-center p-4 xs:mt-32"
     >
-      <div className="relative overflow-hidden flex items-center justify-center w-[1440px] h-[36rem]">
+      <div className="relative flex h-[36rem] w-[1440px] items-center justify-center overflow-hidden">
         {datas.map((data, idx) => {
           const offset = idx - currentIdx;
           let xTranslate = 0;
@@ -50,7 +50,7 @@ const ProjectsCarousel = ({ datas }) => {
           return (
             <motion.div
               key={idx}
-              className={`${offset === 0 ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"} absolute w-[352px] xs:w-[480px] rounded-[28px] text-white bg-primary dark:bg-primary-dark overflow-hidden p-4 border-2 border-primary-dark dark:border-white`}
+              className={`${offset === 0 ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"} absolute w-[352px] overflow-hidden rounded-[28px] border-2 border-primary-dark bg-primary p-4 text-white dark:border-white dark:bg-primary-dark xs:w-[480px]`}
               animate={{
                 x: `${xTranslate}%`,
                 scale: offset === 0 ? 1 : 0.8,
@@ -74,9 +74,9 @@ const ProjectsCarousel = ({ datas }) => {
         })}
       </div>
 
-      <div className="absolute flex gap-6 items-center justify-center w-full -bottom-6 xs:-bottom-16">
+      <div className="absolute -bottom-6 flex w-full items-center justify-center gap-6 xs:-bottom-16">
         <button
-          className="bg-primary-dark dark:bg-white p-2 rounded-full z-10"
+          className="z-10 rounded-full bg-primary-dark p-2 dark:bg-white"
           onClick={handlePrev}
         >
           <ChevronLeft className="text-white dark:text-primary-dark" />
@@ -88,13 +88,13 @@ const ProjectsCarousel = ({ datas }) => {
               className={`${
                 idx === currentIdx
                   ? "bg-primary-dark dark:bg-white"
-                  : "dark:bg-primary-dark bg-white "
-              } w-4 h-4 rounded-full border-2 border-primary-dark dark:border-primary`}
+                  : "bg-white dark:bg-primary-dark"
+              } h-4 w-4 rounded-full border-2 border-primary-dark dark:border-primary`}
             />
           ))}
         </div>
         <button
-          className="bg-primary-dark dark:bg-white p-2 rounded-full"
+          className="rounded-full bg-primary-dark p-2 dark:bg-white"
           onClick={handleNext}
         >
           <ChevronRight className="text-white dark:text-primary-dark" />
