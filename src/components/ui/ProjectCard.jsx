@@ -55,7 +55,7 @@ const ProjectCard = ({ data }) => {
             </div>
           ))}
         </div>
-        <p className="font-light leading-normal text-primary-dark dark:text-white max-xs:text-sm">
+        <p className="scrollbar h-[180px] overflow-auto font-light leading-normal text-primary-dark dark:text-white max-xs:text-sm xs:h-[144px]">
           {data.desc}
         </p>
       </div>

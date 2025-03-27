@@ -25,6 +25,7 @@ const Profile = () => {
   const assets = [
     {
       hook: Instagram,
+      link: "https://www.instagram.com/kim_nzh/",
       label: "Instagram",
       hoveredState: useState(false),
       class: "top-10 right-4 sm:top-24 sm:right-0",
@@ -32,6 +33,7 @@ const Profile = () => {
     },
     {
       hook: LinkedIn,
+      link: "https://www.linkedin.com/in/muhamad-hakim-nizami-a79120293/",
       label: "LinkedIn",
       hoveredState: useState(false),
       class: "bottom-2 right-10 sm:bottom-20 sm:right-6",
@@ -39,6 +41,7 @@ const Profile = () => {
     },
     {
       hook: Github,
+      link: "https://github.com/kimnzh",
       label: "Github",
       hoveredState: useState(false),
       class: "bottom-32 sm:bottom-52 left-4",
@@ -87,9 +90,15 @@ const Profile = () => {
             opportunities to grow, learn, and achieve my goals.
           </div>
           <div className="mt-4 flex max-sm:justify-center">
-            <button className="button mt-4 h-12 w-56 rounded-[18px] border-2 text-center text-xl font-semibold">
-              Download CV
-            </button>
+            <a
+              href="https://drive.google.com/file/d/1CPxOFepB-64lqfbgced1zb7AK0PNUlLg/view?usp=sharing"
+              target="_blank"
+              className="mt-4 h-fit rounded-[18px]"
+            >
+              <button className="button h-12 w-56 rounded-[18px] border-2 text-center text-xl font-semibold">
+                Download CV
+              </button>
+            </a>
           </div>
         </Animated>
         <Animated
@@ -118,7 +127,9 @@ const Profile = () => {
                 className={`${asset.class} group flex justify-center rounded-full max-lg:absolute`}
                 delay={asset.delay}
               >
-                <div
+                <a
+                  target="_blank"
+                  href={asset.link}
                   className="z-20 h-20 w-20 cursor-pointer rounded-full border-4 border-primary-dark bg-primary p-4 transition-all hover:scale-125 hover:bg-primary-dark dark:border-white dark:bg-primary-dark dark:hover:bg-white xl:h-24 xl:w-24"
                   onMouseOver={() => asset.hoveredState[1](true)}
                   onMouseOut={() => asset.hoveredState[1](false)}
@@ -127,7 +138,7 @@ const Profile = () => {
                     darkMode={darkMode}
                     isHovered={asset.hoveredState[0]}
                   />
-                </div>
+                </a>
                 <div className="absolute text-lg font-semibold text-primary-dark opacity-0 transition group-hover:translate-y-[7.5rem] group-hover:opacity-100 dark:text-white max-lg:hidden">
                   {asset.label}
                 </div>
