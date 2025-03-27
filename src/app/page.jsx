@@ -1,15 +1,5 @@
-// import UnderDevelopment from "@/components/elements/UnderDevelopment";
-
-// export default function Home() {
-//   return (
-//     <main className="min-h-screen w-full">
-//       <UnderDevelopment />
-//     </main>
-//   );
-// }
-
 "use client";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
 // Sections
@@ -21,9 +11,29 @@ import ProjectsSection from "@/sections/ProjectsSection";
 import ContactSection from "@/sections/ContactSection";
 import LifeSection from "@/sections/LifeSection";
 
-export default function Home() {
+function ScrollHandler() {
   const searchParams = useSearchParams();
 
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    const isRefresh = window.performance
+      .getEntriesByType("navigation")
+      .some((entry) => entry.type === "reload");
+
+    if (hash && !isRefresh) {
+      const section = document.getElementById(hash);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [searchParams]);
+
+  return null;
+}
+
+export default function Home() {
   function navigateTo(sectionId) {
     window.history.pushState({}, "", `#${sectionId}`);
 
@@ -37,24 +47,6 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    // Check if this is a page refresh
-    const isRefresh = window.performance
-      .getEntriesByType("navigation")
-      .some((entry) => entry.type === "reload");
-
-    // Only scroll to section if it's not a refresh
-    if (hash && !isRefresh) {
-      const section = document.getElementById(hash);
-      if (section) {
-        setTimeout(() => {
-          section.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, [searchParams]);
-
   return (
     <>
       <Navbar onNavigate={navigateTo} />
@@ -66,6 +58,10 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      {/* Wrap `ScrollHandler` in Suspense */}
+      <Suspense fallback={null}>
+        <ScrollHandler />
+      </Suspense>
     </>
   );
 }
