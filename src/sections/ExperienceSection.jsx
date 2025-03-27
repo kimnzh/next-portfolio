@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Animated from "@/components/ui/Animated";
-import { ExperienceDatas } from "@/lib/constants";
+import { EXPERIENCES } from "@/lib/constants";
 
 const Experience = () => {
   return (
@@ -13,12 +13,12 @@ const Experience = () => {
         Things I've done, so far...
       </Animated>
       <div className="sm:max-xl:mr-6">
-        {ExperienceDatas.map((data, idx) => (
+        {EXPERIENCES.map((data, idx) => (
           <Animated
             key={idx}
             className="relative mb-6 flex w-full rounded-[36px] border-2 border-primary-dark bg-primary dark:border-white dark:bg-primary-dark max-md:flex-col"
           >
-            {ExperienceDatas.length - 1 !== idx && (
+            {EXPERIENCES.length - 1 !== idx && (
               <span className="absolute -right-[1.375rem] top-8 h-[calc(100%+1.5rem)] w-1 bg-primary-dark dark:bg-white sm:-right-[2.625rem]" />
             )}
             <span className="absolute -right-7 top-[1.375rem] z-10 h-4 w-4 rounded-full bg-primary-dark dark:bg-white sm:-right-12" />

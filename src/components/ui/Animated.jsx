@@ -1,55 +1,53 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
-const Animated = ({
-  children,
-  direction = "right",
-  delay = 0,
-  distance = 50,
-  className,
-}) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-10% 0px -10% 0px",
-  });
+const Animated = ({ children, direction = "right", delay, className }) => {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef(null);
 
-  const getDirectionalOffset = () => {
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        rootMargin: "10% 0px 0% 0px", // Adjust margins for triggering before/after
+        threshold: Array.from({ length: 11 }, (_, i) => i / 10),
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.unobserve(element);
+    };
+  }, []);
+
+  // Define movement direction
+  const getInitialPosition = () => {
     switch (direction) {
+      case "down":
+        return { opacity: 0, y: 40 };
       case "left":
-        return { x: distance, y: 0 };
+        return { opacity: 0, x: -40 };
       case "right":
-        return { x: -distance, y: 0 };
-      case "top":
-        return { x: 0, y: distance };
-      case "bottom":
-        return { x: 0, y: -distance };
+        return { opacity: 0, x: 40 };
+      case "up":
       default:
-        return { x: 0, y: 0 };
+        return { opacity: 0, y: -40 };
     }
-  };
-
-  const { x, y } = getDirectionalOffset();
-
-  const slideVariants = {
-    hidden: {
-      opacity: 0,
-      x,
-      y,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-    },
   };
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={slideVariants}
-      transition={{ delay, duration: 0.5 }}
+      initial={getInitialPosition()}
+      animate={isInView ? { opacity: 1, x: 0, y: 0 } : getInitialPosition()}
+      transition={{ duration: 1, delay }}
       className={className}
     >
       {children}

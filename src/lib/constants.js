@@ -1,4 +1,4 @@
-export const ExperienceDatas = [
+export const EXPERIENCES = [
   {
     category: "Student Club",
     img: "/experience/auav.jpg",
@@ -61,7 +61,7 @@ export const ExperienceDatas = [
   },
 ];
 
-export const ProjectsDatas = [
+export const PROJECTS = [
   {
     image: "/projects/siak.png",
     title: "Siak Sederhana",

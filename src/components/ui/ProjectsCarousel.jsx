@@ -1,104 +1,87 @@
 "use client";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+
+import { DotButton, useDotButton } from "./DotButton";
+import { PrevButton, NextButton, usePrevNextButtons } from "./ArrowButtons";
 
 import ProjectCard from "./ProjectCard";
 import Animated from "./Animated";
 
-const ProjectsCarousel = ({ datas }) => {
-  const [currentIdx, setCurrentIdx] = useState(0);
+const ProjectsCarousel = ({ slides }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: "start",
+    slidesToScroll: 1,
+    dragFree: false,
+  });
 
-  const handleNext = () => {
-    setCurrentIdx((prevIdx) => (prevIdx + 1) % datas.length);
-  };
+  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+    useDotButton(emblaApi);
 
-  const handlePrev = () => {
-    setCurrentIdx((prevIdx) =>
-      prevIdx === 0 ? datas.length - 1 : prevIdx - 1
-    );
-  };
-
-  const handleDragEnd = (event, info) => {
-    const dragThreshold = 50; // Minimum drag distance to switch slides
-    if (info.offset.x < -dragThreshold) {
-      handleNext();
-    } else if (info.offset.x > dragThreshold) {
-      handlePrev();
+  useEffect(() => {
+    if (emblaApi) {
+      console.log("Embla initialized", emblaApi);
     }
-  };
+  }, [emblaApi]);
+
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi);
+
+  // relative flex w-[342px] items-center justify-center xs:w-[480px]
 
   return (
     <Animated
       direction="bottom"
-      className="absolute mt-20 flex w-full items-center justify-center p-4 xs:mt-32"
+      className="absolute mt-28 flex w-full justify-center p-4 xs:mt-32"
     >
-      <div className="relative flex h-[36rem] w-[1440px] items-center justify-center overflow-hidden">
-        {datas.map((data, idx) => {
-          const offset = idx - currentIdx;
-          let xTranslate = 0;
-
-          if (offset < 0 || (offset === datas.length - 1 && currentIdx === 0)) {
-            xTranslate = 100 * offset;
-          } else if (
-            offset > 0 ||
-            (offset === -(datas.length - 1) && currentIdx === datas.length - 1)
-          ) {
-            xTranslate = 100 * offset;
-          }
-
-          return (
-            <motion.div
-              key={idx}
-              className={`${offset === 0 ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"} absolute w-[352px] overflow-hidden rounded-[28px] border-2 border-primary-dark bg-primary p-4 text-white dark:border-white dark:bg-primary-dark xs:w-[480px]`}
-              animate={{
-                x: `${xTranslate}%`,
-                scale: offset === 0 ? 1 : 0.8,
-                zIndex: offset === 0 ? 10 : 5,
-              }}
-              transition={{ duration: 0.5 }}
-              drag={offset === 0 ? "x" : "false"}
-              dragConstraints={{ left: 0, right: 0 }}
-              onDragEnd={handleDragEnd}
-              onClick={
-                offset === -1
-                  ? handlePrev
-                  : offset === 1
-                    ? handleNext
-                    : undefined
-              }
-            >
-              <ProjectCard data={data} offset={offset} />
-            </motion.div>
-          );
-        })}
+      <div
+        className="flex w-full justify-center overflow-hidden"
+        ref={emblaRef}
+      >
+        <div className="flex h-[544px] w-[342px] gap-3 xs:h-[562px] xs:w-[480px]">
+          {slides.map((data, index) => {
+            return (
+              <div
+                key={index}
+                className={`${index === selectedIndex || "scale-[85%]"} relative w-full shrink-0 cursor-grab overflow-hidden rounded-[28px] border-2 border-primary-dark bg-primary p-4 text-white transition-all duration-300 active:cursor-grabbing dark:border-white dark:bg-primary-dark`}
+              >
+                <div
+                  className={`${index === selectedIndex ? "-z-10 opacity-0" : "z-50 opacity-100"} absolute inset-0 bg-slate-100/50 backdrop-blur-[3px] transition dark:bg-slate-900/50`}
+                />
+                <ProjectCard data={data} />
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="absolute -bottom-6 flex w-full items-center justify-center gap-6 xs:-bottom-16">
-        <button
-          className="z-10 rounded-full bg-primary-dark p-2 dark:bg-white"
-          onClick={handlePrev}
-        >
+      <div className="absolute -bottom-10 flex w-full items-center justify-center gap-6 xs:-bottom-16">
+        <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
           <ChevronLeft className="text-white dark:text-primary-dark" />
-        </button>
+        </PrevButton>
+
         <div className="flex gap-2">
-          {Array.from({ length: datas.length }).map((_, idx) => (
-            <div
-              key={idx}
+          {scrollSnaps.map((_, index) => (
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
               className={`${
-                idx === currentIdx
+                index === selectedIndex
                   ? "bg-primary-dark dark:bg-white"
                   : "bg-white dark:bg-primary-dark"
               } h-4 w-4 rounded-full border-2 border-primary-dark dark:border-primary`}
             />
           ))}
         </div>
-        <button
-          className="rounded-full bg-primary-dark p-2 dark:bg-white"
-          onClick={handleNext}
-        >
+        <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled}>
           <ChevronRight className="text-white dark:text-primary-dark" />
-        </button>
+        </NextButton>
       </div>
     </Animated>
   );

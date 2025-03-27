@@ -7,7 +7,7 @@ import ProjectsCarousel from "@/components/ui/ProjectsCarousel";
 import Animated from "@/components/ui/Animated";
 
 import Image from "next/image";
-import { ProjectsDatas } from "@/lib/constants";
+import { PROJECTS } from "@/lib/constants";
 import { StacksData } from "@/lib/constants";
 
 const tabs = [
@@ -92,12 +92,12 @@ const Projects = () => {
         Stuff I've created
       </Animated>
       <Animated
-        direction="bottom"
+        direction="right"
         className="mb-[40rem] text-3xl font-semibold text-primary-dark dark:text-white xs:mb-[46rem] xl:text-4xl"
       >
         My Projects
       </Animated>
-      <ProjectsCarousel datas={ProjectsDatas} />
+      <ProjectsCarousel slides={PROJECTS} />
       <Animated
         direction="bottom"
         className="relative flex w-full flex-col items-center rounded-[36px] border-2 border-primary-dark bg-primary px-2 py-6 dark:border-white dark:bg-primary-dark"
