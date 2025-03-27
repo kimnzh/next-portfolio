@@ -1,5 +1,17 @@
 export const EXPERIENCES = [
   {
+    category: "Committee",
+    img: "/experience/compfest_17.jpg",
+    histories: [
+      {
+        date: "Feb 2025 - Present",
+        position: "Expert Staff of Software Engineering",
+        name: "COMPFEST 17",
+        desc: "Helped develop the main website for COMPFEST 17, the biggest student-held IT Event in Indonesia. The website serves for the staff recuitment, grand launching, and information portal for the event.",
+      },
+    ],
+  },
+  {
     category: "Student Club",
     img: "/experience/auav.jpg",
     histories: [
@@ -7,7 +19,7 @@ export const EXPERIENCES = [
         date: "Feb 2025 - Present",
         position: "Programming Staff at VTOL",
         name: "AUAV",
-        desc: "Doing research in libraries used for the drone automation. Running simulations for the future competitions and developed the main algorithms.",
+        desc: "Conducting research in libraries used for the drone automation. Running simulations for the future competitions and developed the main algorithms.",
       },
       {
         date: "Dec 2024 - Feb 2025",
