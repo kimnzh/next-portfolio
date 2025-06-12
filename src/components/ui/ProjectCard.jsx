@@ -26,8 +26,11 @@ const ProjectCard = ({ data }) => {
               {data.stacks.map((stack, idx) => (
                 <div
                   key={idx}
-                  className="relative aspect-square h-full cursor-pointer"
+                  className="group relative aspect-square h-full cursor-pointer"
                 >
+                  <p className="absolute bottom-0 right-1/2 origin-center translate-x-1/2 scale-0 rounded-xl bg-primary px-1.5 py-0.5 text-primary-dark transition group-hover:translate-y-10 group-hover:scale-100">
+                    {stack}
+                  </p>
                   <Image
                     src={`/stacks/${stack.replace(/\s/g, "").toLowerCase()}.svg`}
                     alt={stack}
@@ -36,9 +39,11 @@ const ProjectCard = ({ data }) => {
                 </div>
               ))}
             </div>
-
             <p className="scrollbar max-h-10 overflow-auto font-light leading-normal text-white max-xl:text-sm max-lg:text-xs max-sm:text-[8px] max-sm:leading-tight sm:max-h-16 lg:max-h-24 xl:max-h-36">
               {data.desc}
+            </p>
+            <p className="font-bold text-white max-xl:text-sm max-lg:text-xs max-sm:text-[8px] sm:mt-2">
+              {data.date}
             </p>
           </div>
           <div className="flex gap-1 sm:gap-2 lg:gap-4">
@@ -65,36 +70,6 @@ const ProjectCard = ({ data }) => {
           fill
         />
       </div>
-      {/* <div className="mt-2 p-2">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold text-primary-dark dark:text-white xs:text-3xl">
-            {data.title}
-          </h1>
-          <h2 className="rounded-full bg-primary-dark px-3 py-1 text-xs font-semibold text-primary dark:bg-white dark:text-primary-dark xs:text-sm">
-            {data.category}
-          </h2>
-        </div>
-        <div className="my-3 flex h-6 gap-2">
-          {data.stacks.map((stack, idx) => (
-            <div
-              key={idx}
-              className="relative aspect-square h-full cursor-pointer"
-            >
-              <Image
-                src={`/stacks/${stack.replace(/\s/g, "").toLowerCase()}.svg`}
-                alt={stack}
-                fill
-              />
-            </div>
-          ))}
-        </div>
-        <p className="scrollbar h-[180px] overflow-auto font-light leading-normal text-primary-dark dark:text-white max-xs:text-sm xs:h-[144px]">
-          {data.desc}
-        </p>
-      </div>
-      <div className="text-end font-semibold text-primary-dark dark:text-white max-xs:text-sm">
-        {data.date}
-      </div> */}
     </>
   );
 };

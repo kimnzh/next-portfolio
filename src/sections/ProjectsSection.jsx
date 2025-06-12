@@ -116,12 +116,11 @@ const Projects = () => {
               key={idx}
               className={`${selectedTab.id === stack.type || "hidden"} group relative flex h-32 w-32 justify-center overflow-hidden rounded-[24px] border-2 border-primary-dark bg-secondary p-4 dark:border-white dark:bg-secondary-dark`}
             >
-              <h2 className="absolute top-0 z-20 flex h-full w-full items-center justify-center text-center text-xl text-primary-dark opacity-0 transition group-hover:opacity-100 dark:font-light dark:text-white">
+              <h2 className="absolute bottom-4 text-xl text-primary-dark opacity-0 transition-all group-hover:translate-y-3 group-hover:opacity-100 dark:font-light dark:text-white">
                 {stack.name}
               </h2>
               <div className="absolute top-0 z-20 h-full w-full cursor-pointer rounded-[24px]" />
-              <div className="absolute top-0 z-10 h-full w-full rounded-[24px] transition-all group-hover:bg-primary/50 group-hover:backdrop-blur-[4px] dark:group-hover:bg-primary-dark/50" />
-              <div className="relative h-full w-full origin-top">
+              <div className="relative h-full w-full origin-top transition-all group-hover:scale-75">
                 <Image
                   src={`/stacks/${stack.name.replace(/\s/g, "").toLowerCase()}.svg`}
                   alt="image"
@@ -138,3 +137,32 @@ const Projects = () => {
 };
 
 export default Projects;
+
+/* <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">Add commentMore actions
+      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
+        Hakim
+      </h2>
+      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
+      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
+        <Image
+          src="dark/logo.svg"
+          alt="image"
+          fill
+          className="object-contain"
+        />
+      </div>
+    </div>
+    <div className="w-32 h-32 relative flex justify-center group p-4">
+      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
+        Hakim
+      </h2>
+      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
+      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
+        <Image
+          src="dark/logo.svg"
+          alt="image"
+          fill
+          className="object-contain"
+        />
+      </div>
+    </div> */

@@ -22,6 +22,7 @@ const ContactSection = () => {
         <Animated className="relative grid w-full grid-cols-2 gap-6 rounded-[24px] border-2 border-primary-dark bg-primary p-[42px_24px_24px] dark:border-white dark:bg-primary-dark md:grid-cols-[1fr_2fr] md:gap-8 md:rounded-[36px] md:p-[56px_32px_32px]">
           <div className="relative">
             <input
+              required
               type="text"
               name="name"
               placeholder=""
@@ -31,6 +32,7 @@ const ContactSection = () => {
           </div>
           <div className="relative">
             <input
+              required
               type="email"
               name="email"
               placeholder=""
@@ -49,6 +51,7 @@ const ContactSection = () => {
           </div>
           <div className="relative col-span-2 row-start-3 md:col-start-2 md:row-span-3 md:row-start-1">
             <textarea
+              required
               name="message"
               placeholder=""
               className="peer h-48 w-full rounded-[8px] border-2 border-primary-dark bg-white px-3 py-2 text-lg md:h-full md:rounded-[10px]"
