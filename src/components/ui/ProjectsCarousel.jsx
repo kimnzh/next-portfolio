@@ -44,16 +44,13 @@ const ProjectsCarousel = ({ slides }) => {
         className="flex w-full justify-center overflow-hidden"
         ref={emblaRef}
       >
-        <div className="flex h-[544px] w-[342px] gap-3 xs:h-[562px] xs:w-[480px]">
+        <div className="flex aspect-video h-[30vw] min-h-44 gap-3">
           {slides.map((data, index) => {
             return (
               <div
                 key={index}
-                className={`${index === selectedIndex || "scale-[85%]"} relative w-full shrink-0 cursor-grab overflow-hidden rounded-[28px] border-2 border-primary-dark bg-primary p-4 text-white transition-all duration-300 active:cursor-grabbing dark:border-white dark:bg-primary-dark`}
+                className={`${index === selectedIndex || "scale-[75%] opacity-60"} relative w-full shrink-0 overflow-hidden rounded-[24px] border-2 border-primary-dark bg-primary p-1 text-white transition-all duration-300 dark:border-white dark:bg-primary-dark sm:rounded-[28px] sm:p-2`}
               >
-                <div
-                  className={`${index === selectedIndex ? "-z-10 opacity-0" : "z-50 opacity-100"} absolute inset-0 bg-slate-100/50 backdrop-blur-[3px] transition dark:bg-slate-900/50`}
-                />
                 <ProjectCard data={data} />
               </div>
             );
@@ -79,6 +76,7 @@ const ProjectsCarousel = ({ slides }) => {
             />
           ))}
         </div>
+
         <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled}>
           <ChevronRight className="text-white dark:text-primary-dark" />
         </NextButton>

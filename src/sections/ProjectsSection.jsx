@@ -93,9 +93,9 @@ const Projects = () => {
       </Animated>
       <Animated
         direction="right"
-        className="mb-[40rem] text-3xl font-semibold text-primary-dark dark:text-white xs:mb-[46rem] xl:text-4xl"
+        className="mb-72 text-3xl font-semibold text-primary-dark dark:text-white xs:mb-[calc(30vw+10rem)] xl:text-4xl"
       >
-        My Projects
+        Selected Works
       </Animated>
       <ProjectsCarousel slides={PROJECTS} />
       <Animated
@@ -138,34 +138,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-{
-  /* <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">
-      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
-        Hakim
-      </h2>
-      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
-        <Image
-          src="dark/logo.svg"
-          alt="image"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </div>
-    <div className="w-32 h-32 relative flex justify-center group p-4">
-      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
-        Hakim
-      </h2>
-      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
-        <Image
-          src="dark/logo.svg"
-          alt="image"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </div> */
-}

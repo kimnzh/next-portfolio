@@ -95,7 +95,7 @@ export const PROJECTS = [
       "Figma",
     ],
     category: "Website",
-    desc: "This portfolio is an upgraded version of the my previous portfolio. This project uses NextJS as its main framework whereas the previous used Vite. It also implements the particular libraries like framer-motion and embla-carousel, and also tailwind for the styling.",
+    desc: "This portfolio is an upgraded version of the my previous portfolio. This project uses NextJS as its main framework whereas the previous used Vite. It also implements the particular libraries like framer-motion and embla-carousel, and tailwindcss for the styling.",
     date: "Jan 2025",
   },
 ];

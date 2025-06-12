@@ -35,12 +35,13 @@ export const usePrevNextButtons = (emblaApi) => {
 };
 
 export const PrevButton = (props) => {
-  const { children, ...restProps } = props;
+  const { children, disabled, ...restProps } = props;
 
   return (
     <button
-      className="z-10 rounded-full bg-primary-dark p-2 dark:bg-white"
+      className={`${disabled && "opacity-0"} z-10 rounded-full bg-primary-dark p-2 dark:bg-white`}
       type="button"
+      disabled={disabled}
       {...restProps}
     >
       {children}
@@ -49,12 +50,13 @@ export const PrevButton = (props) => {
 };
 
 export const NextButton = (props) => {
-  const { children, ...restProps } = props;
+  const { children, disabled, ...restProps } = props;
 
   return (
     <button
-      className="z-10 rounded-full bg-primary-dark p-2 dark:bg-white"
+      className={`${disabled && "opacity-0"} z-10 rounded-full bg-primary-dark p-2 dark:bg-white`}
       type="button"
+      disabled={disabled}
       {...restProps}
     >
       {children}

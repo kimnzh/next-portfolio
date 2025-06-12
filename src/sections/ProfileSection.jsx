@@ -52,7 +52,7 @@ const Profile = () => {
   return (
     <section
       id="profile"
-      className="min-h-screen pt-20 sm:pt-[118px] xl:pt-[204px]"
+      className="min-h-screen pt-16 sm:pt-[118px] xl:pt-[204px]"
     >
       <div className="flex h-full w-full max-sm:flex-col max-sm:items-center">
         <Animated
