@@ -28,7 +28,7 @@ const ProjectCard = ({ data }) => {
                   key={idx}
                   className="group relative aspect-square h-full cursor-pointer"
                 >
-                  <p className="absolute bottom-0 right-1/2 origin-center translate-x-1/2 scale-0 rounded-xl bg-primary px-1.5 py-0.5 text-primary-dark transition group-hover:translate-y-10 group-hover:scale-100">
+                  <p className="absolute bottom-0 right-1/2 z-20 origin-center translate-x-1/2 scale-0 rounded-xl bg-primary px-2 py-0.5 text-primary-dark transition group-hover:translate-y-10 group-hover:scale-100 max-xl:text-sm max-md:hidden">
                     {stack}
                   </p>
                   <Image
