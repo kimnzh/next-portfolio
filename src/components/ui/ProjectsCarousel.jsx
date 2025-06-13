@@ -38,7 +38,7 @@ const ProjectsCarousel = ({ slides }) => {
   return (
     <Animated
       direction="bottom"
-      className="absolute mt-28 flex w-full justify-center p-4 xs:mt-32"
+      className="absolute mt-28 hidden w-full justify-center p-4 xs:mt-32 lg:flex"
     >
       <div
         className="flex w-full justify-center overflow-hidden"

@@ -5,7 +5,7 @@ export const EXPERIENCES = [
     histories: [
       {
         date: "Feb 2025 - Present",
-        position: "Expert Staff of Software Engineering",
+        position: "Expert Staff of Software Engineer",
         name: "COMPFEST 17",
         desc: "Helped develop the main website for COMPFEST 17, the biggest student-held IT Event in Indonesia. The website serves for the staff recuitment, grand launching, and information portal for the event.",
       },

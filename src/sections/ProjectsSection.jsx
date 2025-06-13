@@ -9,6 +9,7 @@ import Animated from "@/components/ui/Animated";
 import Image from "next/image";
 import { PROJECTS } from "@/lib/constants";
 import { StacksData } from "@/lib/constants";
+import ProjectsMobile from "@/components/ui/ProjectsMobile";
 
 const tabs = [
   { id: 1, label: "Languages" },
@@ -93,11 +94,12 @@ const Projects = () => {
       </Animated>
       <Animated
         direction="right"
-        className="mb-72 text-3xl font-semibold text-primary-dark dark:text-white xs:mb-[calc(30vw+10rem)] xl:text-4xl"
+        className="mb-6 text-3xl font-semibold text-primary-dark dark:text-white lg:mb-[calc(30vw+10rem)] xl:text-4xl"
       >
         Selected Works
       </Animated>
       <ProjectsCarousel slides={PROJECTS} />
+      <ProjectsMobile slides={PROJECTS} />
       <Animated
         direction="bottom"
         className="relative flex w-full flex-col items-center rounded-[36px] border-2 border-primary-dark bg-primary px-2 py-6 dark:border-white dark:bg-primary-dark"
