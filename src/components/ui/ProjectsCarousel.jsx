@@ -44,7 +44,7 @@ const ProjectsCarousel = ({ slides }) => {
         className="flex w-full justify-center overflow-hidden"
         ref={emblaRef}
       >
-        <div className="flex aspect-video h-[30vw] min-h-44 gap-3">
+        <div className="flex aspect-video h-[30vw] max-h-[576px] min-h-44 gap-3">
           {slides.map((data, index) => {
             return (
               <div

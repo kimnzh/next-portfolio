@@ -83,6 +83,14 @@ export const PROJECTS = [
     date: "May 2024",
   },
   {
+    image: "/projects/oh24.png",
+    title: "OH Fasilkom 2024",
+    stacks: ["NodeJS", "NPM", "NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
+    category: "Website",
+    desc: "The main website of Open House Fasilkom UI 2024. This website was used to handle event registration and provide general information about OH Fasilkom, including the event itself, Fasilkom UI in general, and the merchandise. I served as the frontend developer of the website.",
+    date: "Nov 2024",
+  },
+  {
     image: "/projects/portfolio.png",
     title: "Portfolio (Revamp)",
     stacks: [
@@ -98,9 +106,29 @@ export const PROJECTS = [
     desc: "This portfolio is an upgraded version of the my previous portfolio. This project uses NextJS as its main framework whereas the previous used Vite. It also implements the particular libraries like framer-motion and embla-carousel, and tailwindcss for the styling.",
     date: "Jan 2025",
   },
+  {
+    image: "/projects/compfest.png",
+    title: "COMPFEST 17",
+    stacks: [
+      "NodeJS",
+      "PNPM",
+      "React Router",
+      "NestJS",
+      "ReactJS",
+      "TypeScript",
+      "TailwindCSS",
+    ],
+    category: "Website",
+    desc: "The main website of COMPFEST 17 serves as a centralized platform that manages all official activities throughout the event. It functions as the primary hub for participant registration across various programs, including staff recruitment, virtual playground, competition, and academy. In addition to registration, the website provides complete and up-to-date information such as schedules, event descriptions, rules, and speaker details, making it easy for participants and visitors to access everything they need. In this project, I served as full-stack developer.",
+    date: "April 2025",
+  },
 ];
 
-export const StacksData = [
+export const STACKS_DATA = [
+  {
+    name: "Bun",
+    type: 5,
+  },
   {
     name: "C",
     type: 1,
@@ -108,6 +136,10 @@ export const StacksData = [
   {
     name: "C++",
     type: 1,
+  },
+  {
+    name: "Cloudflare",
+    type: 5,
   },
   {
     name: "CSS",
@@ -118,12 +150,20 @@ export const StacksData = [
     type: 5,
   },
   {
+    name: "Firebase",
+    type: 4,
+  },
+  {
     name: "Framer Motion",
     type: 2,
   },
   {
     name: "Go",
     type: 1,
+  },
+  {
+    name: "HonoJS",
+    type: 3,
   },
   {
     name: "HTML",
@@ -136,6 +176,10 @@ export const StacksData = [
   {
     name: "JavaScript",
     type: 1,
+  },
+  {
+    name: "MongoDB",
+    type: 4,
   },
   {
     name: "NestJS",
@@ -154,7 +198,15 @@ export const StacksData = [
     type: 5,
   },
   {
+    name: "PNPM",
+    type: 5,
+  },
+  {
     name: "Postgres",
+    type: 4,
+  },
+  {
+    name: "Prisma",
     type: 4,
   },
   {
@@ -166,12 +218,24 @@ export const StacksData = [
     type: 2,
   },
   {
+    name: "React Router",
+    type: 3,
+  },
+  {
+    name: "Remix",
+    type: 3,
+  },
+  {
     name: "ROS",
     type: 5,
   },
   {
     name: "ShadCN UI",
     type: 2,
+  },
+  {
+    name: "Supabase",
+    type: 4,
   },
   {
     name: "TailwindCSS",

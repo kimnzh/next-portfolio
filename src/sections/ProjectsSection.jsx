@@ -8,7 +8,7 @@ import Animated from "@/components/ui/Animated";
 
 import Image from "next/image";
 import { PROJECTS } from "@/lib/constants";
-import { StacksData } from "@/lib/constants";
+import { STACKS_DATA } from "@/lib/constants";
 import ProjectsMobile from "@/components/ui/ProjectsMobile";
 
 const tabs = [
@@ -94,7 +94,7 @@ const Projects = () => {
       </Animated>
       <Animated
         direction="right"
-        className="mb-6 text-3xl font-semibold text-primary-dark dark:text-white lg:mb-[calc(30vw+10rem)] xl:text-4xl"
+        className="mb-6 text-3xl font-semibold text-primary-dark dark:text-white lg:mb-[calc(30vw+10rem)] xl:text-4xl min-[1920px]:mb-[736px]"
       >
         Selected Works
       </Animated>
@@ -113,12 +113,12 @@ const Projects = () => {
         </div>
         <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         <div className="mb-16 grid w-[16rem] grid-cols-2 gap-6 sm:w-[36rem] sm:grid-cols-4 min-[960px]:w-[44rem] min-[960px]:grid-cols-5 xl:w-[60rem] xl:grid-cols-6 xl:gap-10">
-          {StacksData.map((stack, idx) => (
+          {STACKS_DATA.map((stack, idx) => (
             <div
               key={idx}
               className={`${selectedTab.id === stack.type || "hidden"} group relative flex h-32 w-32 justify-center overflow-hidden rounded-[24px] border-2 border-primary-dark bg-secondary p-4 dark:border-white dark:bg-secondary-dark`}
             >
-              <h2 className="absolute bottom-4 text-xl text-primary-dark opacity-0 transition-all group-hover:translate-y-3 group-hover:opacity-100 dark:font-light dark:text-white">
+              <h2 className="absolute bottom-4 text-lg text-primary-dark opacity-0 transition-all group-hover:translate-y-3 group-hover:opacity-100 dark:font-light dark:text-white">
                 {stack.name}
               </h2>
               <div className="absolute top-0 z-20 h-full w-full cursor-pointer rounded-[24px]" />
