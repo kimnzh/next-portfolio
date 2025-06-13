@@ -88,6 +88,14 @@ export const PROJECTS = [
     stacks: ["NodeJS", "NPM", "NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
     category: "Website",
     desc: "The main website of Open House Fasilkom UI 2024. This website was used to handle event registration and provide general information about OH Fasilkom, including the event itself, Fasilkom UI in general, and the merchandise. I served as the frontend developer of the website.",
+    date: "Oct 2024",
+  },
+  {
+    image: "/projects/csui24.png",
+    title: "Cosmic CSUI 24",
+    stacks: ["NodeJS", "NPM", "NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
+    category: "Website",
+    desc: "The official website of Fasilkom UI batch 2024. This website serves as one of CSUI 2024 PMB (Pembinaan Mahasiswa Baru) tasks where everyone shares their message to the batch. It also includes menfess where everyone can share their thoughts and confess their feelings.",
     date: "Nov 2024",
   },
   {
@@ -117,6 +125,7 @@ export const PROJECTS = [
       "ReactJS",
       "TypeScript",
       "TailwindCSS",
+      "Prisma",
     ],
     category: "Website",
     desc: "The main website of COMPFEST 17 serves as a centralized platform that manages all official activities throughout the event. It functions as the primary hub for participant registration across various programs, including staff recruitment, virtual playground, competition, and academy. In addition to registration, the website provides complete and up-to-date information such as schedules, event descriptions, rules, and speaker details, making it easy for participants and visitors to access everything they need. In this project, I served as full-stack developer.",

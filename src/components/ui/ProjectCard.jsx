@@ -46,7 +46,7 @@ const ProjectCard = ({ data }) => {
               {data.date}
             </p>
           </div>
-          <div className="flex gap-1 sm:gap-2 lg:gap-4">
+          <div className="hidden gap-1 sm:gap-2 lg:gap-4">
             <div
               className="h-10 w-10 cursor-pointer rounded-[12px] border-2 border-primary-dark bg-white p-2 hover:bg-primary-dark dark:border-white dark:bg-primary-dark dark:hover:bg-white sm:h-12 sm:w-12 lg:h-16 lg:w-16"
               onMouseOver={() => setIsGithubHovered(true)}

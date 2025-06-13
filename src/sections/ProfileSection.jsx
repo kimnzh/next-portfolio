@@ -19,7 +19,7 @@ const words = [
   "Full-Time Learner",
 ];
 
-const Profile = () => {
+const ProfileSection = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   const assets = [
@@ -52,7 +52,7 @@ const Profile = () => {
   return (
     <section
       id="profile"
-      className="min-h-screen pt-16 sm:pt-[118px] xl:pt-[204px]"
+      className="pb-6 pt-16 sm:pt-[118px] md:pb-12 xl:pt-[204px]"
     >
       <div className="flex h-full w-full max-sm:flex-col max-sm:items-center">
         <Animated
@@ -151,4 +151,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileSection;

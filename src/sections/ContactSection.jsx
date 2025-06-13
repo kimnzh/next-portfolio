@@ -3,10 +3,7 @@ import Animated from "@/components/ui/Animated";
 
 const ContactSection = () => {
   return (
-    <section
-      id="contact"
-      className="pb-24 pt-20 sm:pt-[118px] md:pb-36 xl:pt-[204px]"
-    >
+    <section id="contact" className="pb-24 md:pb-36">
       <Animated
         direction="left"
         className="mb-4 w-full text-start text-4xl font-semibold text-primary-dark underline dark:text-white max-xl:py-2 xl:mb-8 xl:text-5xl"

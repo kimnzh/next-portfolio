@@ -78,14 +78,11 @@ const Tabs = ({ selectedTab, setSelectedTab }) => {
   );
 };
 
-const Projects = () => {
+const ProjectsSection = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
-    <section
-      id="projects"
-      className="flex min-h-screen flex-col items-center pt-12"
-    >
+    <section id="projects" className="flex flex-col items-center pt-12">
       <Animated
         direction="left"
         className="mb-4 w-full text-start text-4xl font-semibold text-primary-dark underline dark:text-white max-xl:py-2 xl:mb-8 xl:text-5xl"
@@ -138,33 +135,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
-
-/* <div className="relative flex justify-center group p-4 w-32 h-32 bg-secondary dark:bg-secondary-dark border-2 border-primary-dark dark:border-white rounded-[24px]">Add commentMore actions
-      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
-        Hakim
-      </h2>
-      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
-        <Image
-          src="dark/logo.svg"
-          alt="image"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </div>
-    <div className="w-32 h-32 relative flex justify-center group p-4">
-      <h2 className="text-2xl absolute text-primary-dark dark:text-white dark:font-light bottom-4 group-hover:translate-y-3 opacity-0 group-hover:opacity-100 transition-all">
-        Hakim
-      </h2>
-      <div className="w-full h-full absolute z-20 top-0 rounded-[24px] cursor-pointer" />
-      <div className="relative w-full h-full group-hover:scale-75 origin-top transition-all">
-        <Image
-          src="dark/logo.svg"
-          alt="image"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </div> */
+export default ProjectsSection;

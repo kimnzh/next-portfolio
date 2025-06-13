@@ -3,9 +3,9 @@ import Image from "next/image";
 import Animated from "@/components/ui/Animated";
 import { EXPERIENCES } from "@/lib/constants";
 
-const Experience = () => {
+const ExperienceSection = () => {
   return (
-    <section id="experience" className="min-h-screen pt-12">
+    <section id="experience" className="pt-12">
       <Animated
         direction="left"
         className="mb-6 w-full text-4xl font-semibold text-primary-dark underline dark:text-white max-xl:py-2 xl:mb-10 xl:text-5xl"
@@ -78,4 +78,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default ExperienceSection;
